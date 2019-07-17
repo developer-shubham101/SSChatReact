@@ -8,38 +8,44 @@ import {
     Button,
     TouchableHighlight,
     Image,
+    Dimensions,
     Alert
 } from 'react-native';
 import firebase from 'react-native-firebase'
-
+const { width, height } = Dimensions.get('window');
 export default class ChatScreen extends React.Component {
+    currentUser = firebase.auth().currentUser;
     constructor(props) {
         super(props);
-        this.state = {list: [], message: ""}
+        this.state = { list: [], message: "", userID: 'NO-ID' }
+
+        this.renderItem = this._renderItem.bind(this);
+
+        const { navigation } = this.props;
+        const userID = navigation.getParam('userID', 'NO-ID');
+        this.state.userID = userID
+        // Alert.alert("Alert", this.state.userID);
+
     }
     chatRef = firebase.database().ref("chat");
-    componentDidMount (){
+    componentDidMount() {
 
         this.chatRef.on('child_added', (snapshot) => {
-            console.log(snapshot)
-            
-                var item = snapshot.val();
-                console.log("new data");
-                let oldList = this.state.list;
-                oldList.push({key: item.message});
-                this.setState({list:oldList})
-                console.log("pushed")
-               
-            
+            var item = snapshot.val();
+            let oldList = this.state.list;
+            oldList.push({ message: item.message, sent: (item.userID == this.currentUser.uid) });
+            this.setState({ list: oldList })
         });
     }
     onClickListener = (viewId) => {
-        if (viewId == "logout") {
-           
-            this.chatRef.push({
-                "message": this.state.message
-            });
-            this.state.message = ""
+        if (viewId == "send") {
+            if (this.state.message != "") {
+                this.chatRef.push({
+                    "message": this.state.message,
+                    "userID": this.currentUser.uid
+                });
+                this.state.message = ""
+            }
         } else {
             Alert.alert("Alert", "Button pressed " + viewId);
         }
@@ -51,28 +57,54 @@ export default class ChatScreen extends React.Component {
     goBack = () => {
         this.props.navigation.goBack();
     }
+    _renderItem = ({ item }) => {
+        console.log(item)
+        if (item.sent === false) {
+            return (
+                <View style={styles.eachMsg}>
+                    <Image source={{ uri: item.image }} style={styles.userPic} />
+                    <View style={styles.msgBlock}>
+                        <Text style={styles.msgTxt}>{item.message}</Text>
+                    </View>
+                </View>
+            );
+        } else {
+            return (
+                <View style={styles.rightMsg} >
+                    <View style={styles.rightBlock} >
+                        <Text style={styles.rightTxt}>{item.message}</Text>
+                    </View>
+                    <Image source={{ uri: "https://www.bootdey.com/img/Content/avatar/avatar1.png" }} style={styles.userPic} />
+                </View>
+            );
+        }
+    };
+
+    //renderItem={({ item }) => <Text style={styles.item} onPress={this.openChatScreen.bind(this, item)} >{item.key}</Text>}
     render() {
         return (
             <View style={styles.container}>
-                 
-                    <FlatList  
-                        data={this.state.list}
-                        extraData={this.state} 
-                        renderItem={({ item }) => <Text style={styles.item} onPress={this.openChatScreen.bind(this, item)} >{item.key}</Text>}
-                    />
-                
-                <View style={styles.inputContainer}>
-                    <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
-                    <TextInput style={styles.inputs}
-                        placeholder="Enter message" 
-                        underlineColorAndroid='transparent'
-                        value={this.state.message}
-                        onChangeText={(message) => this.setState({ message })} />
-                </View>
-                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('logout')}>
-                    <Text style={styles.loginText}>Logout</Text>
-                </TouchableHighlight>
 
+                <FlatList
+                    data={this.state.list}
+                    extraData={this.state}
+                    renderItem={this.renderItem}
+
+                />
+
+                <View style={styles.bottomContainer}> 
+                    <View style={styles.inputContainer}>
+                        <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
+                        <TextInput style={styles.inputs}
+                            placeholder="Enter message"
+                            underlineColorAndroid='transparent'
+                            value={this.state.message}
+                            onChangeText={(message) => this.setState({ message })} />
+                    </View>
+                    <TouchableHighlight style={[styles.buttonContainer ]} onPress={() => this.onClickListener('send')}>
+                        <Text style={styles.loginText}>Send</Text>
+                    </TouchableHighlight>
+                </View>
 
             </View>
         );
@@ -81,24 +113,33 @@ export default class ChatScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 22
+        paddingTop: 22,
+        backgroundColor: '#FAFAFD'
     },
-    
+
     item: {
         padding: 10,
         fontSize: 18,
         height: 44,
     },
     inputContainer: {
-        borderBottomColor: '#F5FCFF',
+        borderBottomColor: '#ddd',
         backgroundColor: '#FFFFFF',
-        borderRadius: 30,
+        borderRadius: 0,
         borderBottomWidth: 1,
-        width: 250,
+        width: '80%',
         height: 45,
-        marginBottom: 20,
+      
         flexDirection: 'row',
         alignItems: 'center'
+    },
+    bottomContainer: { 
+        width: '100%',
+        height: 45,
+        marginBottom: 0,
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 20,
     },
     buttonContainer: {
         height: 45,
@@ -107,12 +148,121 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 20,
         width: 250,
-        borderRadius: 30,
+         
     },
     loginButton: {
         backgroundColor: "#00b5ec",
     },
     loginText: {
         color: 'white',
-    }
+    },
+
+
+
+    ////
+
+
+    keyboard: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+    image: {
+        width,
+        height,
+    },
+    header: {
+        height: 65,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#075e54',
+    },
+    left: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    right: {
+        flexDirection: 'row',
+    },
+    chatTitle: {
+        color: '#fff',
+        fontWeight: '600',
+        margin: 10,
+        fontSize: 15,
+    },
+    chatImage: {
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        margin: 5,
+    },
+    input: {
+        flexDirection: 'row',
+        alignSelf: 'flex-end',
+        padding: 10,
+        height: 40,
+        width: width - 20,
+        backgroundColor: '#fff',
+        margin: 10,
+        shadowColor: '#3d3d3d',
+        shadowRadius: 2,
+        shadowOpacity: 0.5,
+        shadowOffset: {
+            height: 1,
+        },
+        borderColor: '#696969',
+        borderWidth: 1,
+    },
+    eachMsg: {
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        margin: 5,
+    },
+    rightMsg: {
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        margin: 5,
+        alignSelf: 'flex-end',
+    },
+    userPic: {
+        height: 40,
+        width: 40,
+        margin: 5,
+        borderRadius: 20,
+        backgroundColor: '#f8f8f8',
+    },
+    msgBlock: {
+        width: 220,
+        borderRadius: 5,
+        backgroundColor: '#ffffff',
+        padding: 10,
+        shadowColor: '#3d3d3d',
+        shadowRadius: 2,
+        shadowOpacity: 0.5,
+        shadowOffset: {
+            height: 1,
+        },
+    },
+    rightBlock: {
+        width: 220,
+        borderRadius: 3,
+        backgroundColor: '#0F84FE',
+        padding: 10,
+        shadowColor: '#0F84FE',
+        shadowRadius: 2,
+        shadowOpacity: 0.5,
+        shadowOffset: {
+            height: 1,
+        },
+    },
+    msgTxt: {
+        fontSize: 15,
+        color: '#555',
+        fontWeight: '600',
+    },
+    rightTxt: {
+        fontSize: 15,
+        color: '#fff',
+        fontWeight: '600',
+    },
 });

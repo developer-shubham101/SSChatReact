@@ -22,10 +22,8 @@ export default class UsersList extends React.Component {
         usersRef.on('value', (snapshot) => {
             snapshot.forEach((snap) => {
                 var item = snap.val();
-                item.key = snap.key;
-                console.log("this.state")
-                console.log(this.state)
-                this.state.list.push({key: item.email})
+                
+                this.state.list.push({email: item.email, userID: item.userID})
             }); 
         });
     }
@@ -43,7 +41,12 @@ export default class UsersList extends React.Component {
 
     }
     openChatScreen = (object) => {
-        this.props.navigation.navigate("Chat")
+        console.log(object)
+        this.props.navigation.navigate("Chat", {
+            email: object.email,
+            userID: object.userID
+            
+          })
     }
     goBack = () => {
         this.props.navigation.goBack();
@@ -52,8 +55,9 @@ export default class UsersList extends React.Component {
         return (
             <View style={styles.container}>
                 <FlatList
+                    extraData={this.state}
                     data={this.state.list}
-                    renderItem={({ item }) => <Text style={styles.item} onPress={this.openChatScreen.bind(this, item)} >{item.key}</Text>}
+                    renderItem={({ item }) => <Text style={styles.item} onPress={this.openChatScreen.bind(this, item)} >{item.email}</Text>}
                 />
 
                 <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('logout')}>
