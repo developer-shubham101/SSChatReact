@@ -20,6 +20,7 @@ export default class UsersList extends React.Component {
     componentDidMount (){
         var usersRef = firebase.database().ref("users");
         usersRef.on('value', (snapshot) => {
+            console.log(snapshot)
             snapshot.forEach((snap) => {
                 var item = snap.val();
                 

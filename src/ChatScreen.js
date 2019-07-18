@@ -9,7 +9,8 @@ import {
     TouchableHighlight,
     Image,
     Dimensions,
-    Alert
+    Alert,
+    KeyboardAvoidingView
 } from 'react-native';
 import firebase from 'react-native-firebase'
 const { width, height } = Dimensions.get('window');
@@ -84,33 +85,36 @@ export default class ChatScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-
+<KeyboardAvoidingView behavior="padding" style={styles.keyboard}>
+<View style={styles.messageList}> 
                 <FlatList
                     data={this.state.list}
                     extraData={this.state}
                     renderItem={this.renderItem}
-
+                    
                 />
-
+</View>
                 <View style={styles.bottomContainer}> 
-                    <View style={styles.inputContainer}>
+                     <View style={styles.inputContainer}>
                         <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
                         <TextInput style={styles.inputs}
                             placeholder="Enter message"
                             underlineColorAndroid='transparent'
                             value={this.state.message}
                             onChangeText={(message) => this.setState({ message })} />
-                    </View>
-                    <TouchableHighlight style={[styles.buttonContainer ]} onPress={() => this.onClickListener('send')}>
+                    </View>  
+                    <TouchableHighlight style={[styles.buttonContainer, styles.loginButton ]} onPress={() => this.onClickListener('send')}>
                         <Text style={styles.loginText}>Send</Text>
                     </TouchableHighlight>
                 </View>
+               </KeyboardAvoidingView>
 
             </View>
         );
     }
 }
 const styles = StyleSheet.create({
+   
     container: {
         flex: 1,
         paddingTop: 22,
@@ -126,10 +130,9 @@ const styles = StyleSheet.create({
         borderBottomColor: '#ddd',
         backgroundColor: '#FFFFFF',
         borderRadius: 0,
-        borderBottomWidth: 1,
-        width: '80%',
+        borderBottomWidth: 1, 
         height: 45,
-      
+        flex:3,
         flexDirection: 'row',
         alignItems: 'center'
     },
@@ -139,15 +142,17 @@ const styles = StyleSheet.create({
         marginBottom: 0,
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20,
+        marginBottom: 0,
+        flex:1
+        
     },
     buttonContainer: {
         height: 45,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20,
-        width: 250,
+        marginBottom: 0,
+        flex: 1
          
     },
     loginButton: {
@@ -195,6 +200,9 @@ const styles = StyleSheet.create({
         height: 30,
         borderRadius: 15,
         margin: 5,
+    },
+    messageList:{
+        flex:3,
     },
     input: {
         flexDirection: 'row',

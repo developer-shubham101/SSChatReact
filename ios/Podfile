@@ -30,6 +30,9 @@ target 'SSChatReact' do
   
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
 
   target 'SSChatReactTests' do
