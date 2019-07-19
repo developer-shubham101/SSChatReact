@@ -85,36 +85,36 @@ export default class ChatScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-<KeyboardAvoidingView behavior="padding" style={styles.keyboard}>
-<View style={styles.messageList}> 
-                <FlatList
-                    data={this.state.list}
-                    extraData={this.state}
-                    renderItem={this.renderItem}
-                    
-                />
-</View>
-                <View style={styles.bottomContainer}> 
-                     <View style={styles.inputContainer}>
-                        <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
-                        <TextInput style={styles.inputs}
-                            placeholder="Enter message"
-                            underlineColorAndroid='transparent'
-                            value={this.state.message}
-                            onChangeText={(message) => this.setState({ message })} />
-                    </View>  
-                    <TouchableHighlight style={[styles.buttonContainer, styles.loginButton ]} onPress={() => this.onClickListener('send')}>
-                        <Text style={styles.loginText}>Send</Text>
-                    </TouchableHighlight>
-                </View>
-               </KeyboardAvoidingView>
+                <KeyboardAvoidingView behavior="padding" style={styles.keyboard}>
+                    <View style={styles.messageList}>
+                        <FlatList
+                            data={this.state.list}
+                            extraData={this.state}
+                            renderItem={this.renderItem}
+
+                        />
+                    </View>
+                    <View style={styles.bottomContainer}>
+                        <View style={styles.inputContainer}>
+                            <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
+                            <TextInput style={styles.inputs}
+                                placeholder="Enter message"
+                                underlineColorAndroid='transparent'
+                                value={this.state.message}
+                                onChangeText={(message) => this.setState({ message })} />
+                        </View>
+                        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('send')}>
+                            <Text style={styles.loginText}>Send</Text>
+                        </TouchableHighlight>
+                    </View>
+                </KeyboardAvoidingView>
 
             </View>
         );
     }
 }
 const styles = StyleSheet.create({
-   
+
     container: {
         flex: 1,
         paddingTop: 22,
@@ -130,21 +130,21 @@ const styles = StyleSheet.create({
         borderBottomColor: '#ddd',
         backgroundColor: '#FFFFFF',
         borderRadius: 0,
-        borderBottomWidth: 1, 
+        borderBottomWidth: 1,
         height: 45,
-        flex:3,
+        flex: 3,
         flexDirection: 'row',
         alignItems: 'center'
     },
-    bottomContainer: { 
+    bottomContainer: {
         width: '100%',
         height: 45,
         marginBottom: 0,
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 0,
-        flex:1
-        
+        flex: 1
+
     },
     buttonContainer: {
         height: 45,
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 0,
         flex: 1
-         
+
     },
     loginButton: {
         backgroundColor: "#00b5ec",
@@ -201,8 +201,8 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         margin: 5,
     },
-    messageList:{
-        flex:3,
+    messageList: {
+        flex: 3,
     },
     input: {
         flexDirection: 'row',

@@ -11,6 +11,8 @@ import firebase from 'react-native-firebase';
 import LoginScreen from './src/LoginScreen'
 import UsersList from './src/UsersList'
 import ChatScreen from './src/ChatScreen'
+import ProfileScreen from './src/ProfileScreen'
+
 import { createStackNavigator, createAppContainer, createDrawerNavigator } from 'react-navigation';
 const AppNavigator = createStackNavigator({
     Home: {
@@ -21,6 +23,9 @@ const AppNavigator = createStackNavigator({
     },
     Chat: {
         screen: ChatScreen
+    }, 
+    Profile: {
+        screen: ProfileScreen
     }
 }, {
         initialRouteName: 'Home',
