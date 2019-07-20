@@ -25,7 +25,7 @@ export default class LoginScreen extends React.Component {
         if (currentUser) {
             console.log("You are login ")
             console.log(currentUser.toJSON())
-            this.props.navigation.navigate("Profile")
+            this.props.navigation.navigate("UsersList")
         } else {
             console.log("You are not login ")
         }
@@ -44,7 +44,7 @@ export default class LoginScreen extends React.Component {
                 userID: user.uid,
                 email: user.email
             });
-            this.props.navigation.navigate("Profile")
+            this.props.navigation.navigate("UsersList")
         } else {
             console.log("Logout ")
         }
