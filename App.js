@@ -27,7 +27,7 @@ const AppNavigator = createStackNavigator({
     },
 
 }, {
-        initialRouteName: 'UsersList',
+        initialRouteName: 'Home',
     });
 
 const TabNavigator = createBottomTabNavigator({

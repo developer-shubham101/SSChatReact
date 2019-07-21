@@ -73,9 +73,11 @@ export default class UsersList extends React.Component {
 	componentDidMount() {
 
 		var usersRef = firebase.database().ref("users");
+		console.log(usersRef)
 		usersRef.on('value', (snapshot) => {
 			console.log(snapshot)
-			snapshot.forEach((snap) => {
+			snapshot.forEach((snap) => {3
+				console.log("snaps")
 				var item = snap.val();
 				let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png'
 				this.state.list.push({ email: item.email, userID: item.userID, image: image })
