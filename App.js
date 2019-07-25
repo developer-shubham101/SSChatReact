@@ -12,6 +12,7 @@ import LoginScreen from './src/LoginScreen'
 import UsersList from './src/UsersList'
 import ChatScreen from './src/ChatScreen'
 import ProfileScreen from './src/ProfileScreen'
+import Examples from './src/Examples'
 
 import { createStackNavigator, createAppContainer, createDrawerNavigator, createBottomTabNavigator } from 'react-navigation';
 
@@ -25,13 +26,18 @@ const AppNavigator = createStackNavigator({
     Chat: {
         screen: ChatScreen
     },
+    Examples: {
+        screen: Examples
+    }
 
 }, {
         initialRouteName: 'Home',
     });
 
-const TabNavigator = createBottomTabNavigator({
-    AppNavigator,
+const TabNavigator = createBottomTabNavigator({ 
+    Users: {
+        screen: AppNavigator
+    },
     Profile: {
         screen: ProfileScreen
     },

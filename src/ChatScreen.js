@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 import firebase from 'react-native-firebase'
 const { width, height } = Dimensions.get('window');
+
+ 
 export default class ChatScreen extends React.Component {
     currentUser = firebase.auth().currentUser;
     constructor(props) {
@@ -21,16 +23,23 @@ export default class ChatScreen extends React.Component {
         this.state = { list: [], message: "", userID: 'NO-ID' }
 
         this.renderItem = this._renderItem.bind(this);
-
+         
         const { navigation } = this.props;
         const userID = navigation.getParam('userID', 'NO-ID');
         this.state.userID = userID
         // Alert.alert("Alert", this.state.userID);
-
+        this.chatRef = firebase.database().ref("chat/" + this.fetchLower(userID, this.currentUser.uid));
     }
-    chatRef = firebase.database().ref("chat");
+    chatRef;
+    fetchLower (str1, str2){
+        if (str1.localeCompare(str2) < 0) {
+            return str1 + "_" + str2
+        }else{
+            return str2 + "_" + str1
+        } 
+    }
     componentDidMount() {
-
+       
         this.chatRef.on('child_added', (snapshot) => {
             var item = snapshot.val();
             let oldList = this.state.list;
@@ -63,7 +72,7 @@ export default class ChatScreen extends React.Component {
         if (item.sent === false) {
             return (
                 <View style={styles.eachMsg}>
-                    <Image source={{ uri: item.image }} style={styles.userPic} />
+                     
                     <View style={styles.msgBlock}>
                         <Text style={styles.msgTxt}>{item.message}</Text>
                     </View>
@@ -75,7 +84,7 @@ export default class ChatScreen extends React.Component {
                     <View style={styles.rightBlock} >
                         <Text style={styles.rightTxt}>{item.message}</Text>
                     </View>
-                    <Image source={{ uri: "https://www.bootdey.com/img/Content/avatar/avatar1.png" }} style={styles.userPic} />
+                     
                 </View>
             );
         }
@@ -168,8 +177,7 @@ const styles = StyleSheet.create({
 
 
     keyboard: {
-        flex: 1,
-        justifyContent: 'center',
+        flex: 1 
     },
     image: {
         width,
@@ -240,7 +248,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f8f8f8',
     },
     msgBlock: {
-        width: 220,
+        width: '80%',
         borderRadius: 5,
         backgroundColor: '#ffffff',
         padding: 10,
@@ -252,7 +260,7 @@ const styles = StyleSheet.create({
         },
     },
     rightBlock: {
-        width: 220,
+        width: '80%',
         borderRadius: 3,
         backgroundColor: '#0F84FE',
         padding: 10,

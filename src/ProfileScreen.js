@@ -144,7 +144,14 @@ export default class ProfileScreen extends React.Component {
         });
     }
     onClickListener = (viewId) => {
-        if (viewId == "changeProfile") {
+        if (viewId == "logout") {
+			firebase.auth().signOut().then(() => {
+				this.goBack();
+			}).catch(function (error) {
+				console.log(error)
+				Alert.alert("Logout error", error);
+			});
+		} else if (viewId == "changeProfile") {
 
 
         } else if (viewId == 'changeDP') {
@@ -187,6 +194,9 @@ export default class ProfileScreen extends React.Component {
                     <Text style={styles.info}>UX Designer / Mobile developer</Text>
                     <Text style={styles.description}>Click on profile icon to change profile image.!!!</Text>
                 </View>
+                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('logout')}>
+					<Text style={styles.loginText}>Logout</Text>
+				</TouchableHighlight>
 
                 <View style={styles.bottomContainer}>
                     <TouchableOpacity style={styles.buttonContainer}>

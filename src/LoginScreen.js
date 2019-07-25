@@ -7,7 +7,8 @@ import {
     Button,
     TouchableHighlight,
     Image,
-    Alert
+    Alert,
+    Dimensions
 } from 'react-native';
 import firebase from 'react-native-firebase'
 

@@ -87,12 +87,7 @@ export default class UsersList extends React.Component {
 	}
 	onClickListener = (viewId) => {
 		if (viewId == "logout") {
-			firebase.auth().signOut().then(() => {
-				this.goBack();
-			}).catch(function (error) {
-				console.log(error)
-				Alert.alert("Logout error", error);
-			});
+			 
 		} else {
 			Alert.alert("Alert", "Button pressed " + viewId);
 		}
@@ -140,9 +135,7 @@ export default class UsersList extends React.Component {
 
 				/>
 				{/* renderItem={({ item }) => <Text style={styles.item} onPress={this.openChatScreen.bind(this, item)} >{item.email}</Text>} */}
-				<TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('logout')}>
-					<Text style={styles.loginText}>Logout</Text>
-				</TouchableHighlight>
+				
 
 
 			</View>
