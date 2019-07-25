@@ -13,38 +13,42 @@ import UsersList from './src/UsersList'
 import ChatScreen from './src/ChatScreen'
 import ProfileScreen from './src/ProfileScreen'
 import Examples from './src/Examples'
+import EditProfileScreen from './src/EditProfileScreen'
 
 import { createStackNavigator, createAppContainer, createDrawerNavigator, createBottomTabNavigator } from 'react-navigation';
 
-const AppNavigator = createStackNavigator({
-    Home: {
-        screen: LoginScreen,
-    },
+
+
+const TabNavigator = createBottomTabNavigator({
     UsersList: {
         screen: UsersList,
+    },
+    Profile: {
+        screen: ProfileScreen
+    },
+
+});
+const AppNavigator = createStackNavigator({
+    LoginScreen: {
+        screen: LoginScreen,
+    },
+    EditProfileScreen :{
+        screen :EditProfileScreen
     },
     Chat: {
         screen: ChatScreen
     },
     Examples: {
         screen: Examples
+    },
+    TabNavigator: {
+        screen: TabNavigator
     }
 
 }, {
-        initialRouteName: 'Home',
+        initialRouteName: 'LoginScreen',
     });
-
-const TabNavigator = createBottomTabNavigator({ 
-    Users: {
-        screen: AppNavigator
-    },
-    Profile: {
-        screen: ProfileScreen
-    },
-   
-});
-
-const AppContainer = createAppContainer(TabNavigator);
+const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
     render() {

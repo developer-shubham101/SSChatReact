@@ -79,8 +79,9 @@ export default class UsersList extends React.Component {
 			snapshot.forEach((snap) => {3
 				console.log("snaps")
 				var item = snap.val();
-				let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png'
-				this.state.list.push({ email: item.email, userID: item.userID, image: image })
+                let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png'
+                let name = item.name ? item.name : item.email
+				this.state.list.push({ email: item.email, userID: item.userID, image: image, name: name })
 			});
 		});
 
@@ -114,7 +115,7 @@ export default class UsersList extends React.Component {
 					<CustomImage src={ item.image } style={styles.pic} />
 					<View>
 						<View style={styles.nameContainer}>
-							<Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">{item.email}</Text>
+							<Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">{item.name}</Text>
 							<Text style={styles.mblTxt}>Mobile</Text>
 						</View>
 						<View style={styles.msgContainer}>

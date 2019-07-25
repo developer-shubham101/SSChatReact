@@ -14,7 +14,12 @@ export default class ProfileScreen extends React.Component {
     currentUser = firebase.auth().currentUser;
     constructor(props) {
         super(props);
-        this.state = { avatarSource: "https://bootdey.com/img/Content/avatar/avatar6.png" }
+        this.state = { avatarSource: "https://bootdey.com/img/Content/avatar/avatar6.png", email: '', name: '', bio: ""}
+
+        firebase.database().ref("users/" + this.currentUser.uid ).once("value", (snap) => {
+            console.log(snap)
+            this.setState({name: snap.val().name, email: snap.val().email, bio: snap.val().bio}) 
+        });
     }
     componentDidMount() {
         // Get a non-default Storage bucket
@@ -145,14 +150,33 @@ export default class ProfileScreen extends React.Component {
     }
     onClickListener = (viewId) => {
         if (viewId == "logout") {
-			firebase.auth().signOut().then(() => {
-				this.goBack();
-			}).catch(function (error) {
-				console.log(error)
-				Alert.alert("Logout error", error);
-			});
-		} else if (viewId == "changeProfile") {
 
+            Alert.alert(
+                'Alert!',
+                'Are you sure to logout',
+                [
+                    { 
+                        text: 'Yes', onPress: () => { 
+                        firebase.auth().signOut().then(() => {
+                            this.goLogin();
+                        }).catch(function (error) {
+                            console.log(error)
+                            Alert.alert("Logout error", error);
+                        });
+                    }
+                 },
+                    {
+                        text: 'No',
+                        onPress: () => console.log('Cancel Pressed'),
+                        style: 'cancel',
+                    }
+                ],
+                { cancelable: false },
+            );
+
+			
+		} else if (viewId == "editProfile") {
+            this.props.navigation.navigate("EditProfileScreen")
 
         } else if (viewId == 'changeDP') {
 
@@ -175,7 +199,9 @@ export default class ProfileScreen extends React.Component {
         }
 
     }
-
+    goLogin = () => {
+        this.props.navigation.navigate("LoginScreen")
+    }
     goBack = () => {
         this.props.navigation.goBack();
     }
@@ -190,20 +216,18 @@ export default class ProfileScreen extends React.Component {
                 </TouchableHighlight>
 
                 <View style={styles.body}>
-                    <Text style={styles.name}>John Doe</Text>
-                    <Text style={styles.info}>UX Designer / Mobile developer</Text>
-                    <Text style={styles.description}>Click on profile icon to change profile image.!!!</Text>
+                    <Text style={styles.name}>{this.state.name}</Text>
+                    <Text style={styles.info}>{this.state.email}</Text>
+                    <Text style={styles.description}>{this.state.bio}</Text>
                 </View>
-                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('logout')}>
-					<Text style={styles.loginText}>Logout</Text>
-				</TouchableHighlight>
+              
 
                 <View style={styles.bottomContainer}>
-                    <TouchableOpacity style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.buttonContainer} onPress={() => this.onClickListener('editProfile')}>
                         <Text style={styles.buttonText} >Edit Profile</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonContainer}>
-                        <Text style={styles.buttonText}>Change Password</Text>
+                    <TouchableOpacity style={styles.buttonContainer} onPress={() => this.onClickListener('logout')}>
+                        <Text style={styles.buttonText}>Logout</Text>
                     </TouchableOpacity>
                 </View>
             </View>

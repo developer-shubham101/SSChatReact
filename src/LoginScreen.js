@@ -39,12 +39,17 @@ export default class LoginScreen extends React.Component {
         if (user) {
             console.log("Login ")
             console.log(user.toJSON())
-            var usersRef = firebase.database().ref("users/" + user.uid);
-
-            usersRef.set({
-                userID: user.uid,
-                email: user.email
-            });
+            var usersRef = firebase.database().ref("users/" + user.uid) ;
+            var emailRef = usersRef.child("email");
+            var idRef = usersRef.child("userID");
+            var onlineRef = usersRef.child("online");
+            emailRef.set(user.email);
+            idRef.set(user.uid);
+            onlineRef.set(true)
+            // usersRef.set({
+            //     userID: user.uid,
+            //     email: user.email,
+            // });
             this.props.navigation.navigate("UsersList")
         } else {
             console.log("Logout ")

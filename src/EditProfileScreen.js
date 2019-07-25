@@ -10,19 +10,24 @@ import {
     Alert,
     Dimensions
 } from 'react-native';
-import firebase from 'react-native-firebase'
+import firebase from 'react-native-firebase'; 
 
-export default class Examples extends React.Component {
-
+export default class EditProfileScreen extends React.Component {
+    currentUser = firebase.auth().currentUser;
+    userRef;
     constructor(props) {
         super(props);
         this.state = {
-            email: 'shubham@gmail.com',
-            password: '123456',
-            name: 'Shubham',
+            email: '', 
+            name: '',
+            bio: ''
         }
 
-
+        this.userRef = firebase.database().ref("users/" + this.currentUser.uid );
+        firebase.database().ref("users/" + this.currentUser.uid ).once("value", (snap) => {
+            console.log(snap)
+            this.setState({name: snap.val().name, email: snap.val().email, bio: snap.val().bio}) 
+        });
     }
 
     componentDidMount() {
@@ -31,8 +36,9 @@ export default class Examples extends React.Component {
 
 
     onClickListener = (viewId) => {
-        if (viewId == "register") {
-
+        if (viewId == "update") {
+            this.userRef.child('name').set(this.state.name)
+            this.userRef.child('bio').set(this.state.bio)
         } else if (viewId == "login") {
 
         } else {
@@ -48,6 +54,7 @@ export default class Examples extends React.Component {
                     <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/message/ultraviolet/50/3498db' }} />
                     <TextInput style={styles.inputs}
                         placeholder="Email"
+                        value={this.state.email}
                         keyboardType="email-address"
                         underlineColorAndroid='transparent'
                         editable={false}
@@ -64,24 +71,15 @@ export default class Examples extends React.Component {
                 <View style={styles.inputContainer}>
                     <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
                     <TextInput style={styles.inputs}
-                        placeholder="Password"
-                        secureTextEntry={true}
-
+                        placeholder="Bio" 
+                        value={this.state.bio}
                         underlineColorAndroid='transparent'
-                        onChangeText={(password) => this.setState({ password })} />
+                        onChangeText={(bio) => this.setState({ bio })} />
                 </View>
-                <View style={styles.inputContainer}>
-                    <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
-                    <TextInput style={styles.inputs}
-                        placeholder="Password"
-                        secureTextEntry={true}
+                 
 
-                        underlineColorAndroid='transparent'
-                        onChangeText={(password) => this.setState({ password })} />
-                </View>
-
-                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('login')}>
-                    <Text style={styles.loginText}>Login</Text>
+                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('update')}>
+                    <Text style={styles.loginText}>Update Profile</Text>
                 </TouchableHighlight>
 
             </View>
