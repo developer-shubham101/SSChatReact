@@ -10,7 +10,7 @@ import {
     Alert,
     Dimensions
 } from 'react-native';
-import firebase from 'react-native-firebase'; 
+import firebase from 'react-native-firebase';
 
 export default class EditProfileScreen extends React.Component {
     currentUser = firebase.auth().currentUser;
@@ -18,83 +18,105 @@ export default class EditProfileScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '', 
+            email: '',
             name: '',
             bio: ''
         }
 
-        this.userRef = firebase.database().ref("users/" + this.currentUser.uid );
-        firebase.database().ref("users/" + this.currentUser.uid ).once("value", (snap) => {
-            console.log(snap)
-            this.setState({name: snap.val().name, email: snap.val().email, bio: snap.val().bio}) 
-        });
+        this.userRef = firebase.database().ref("users/" + this.currentUser.uid);
+        firebase
+            .database()
+            .ref("users/" + this.currentUser.uid)
+            .once("value", snap => {
+                console.log(snap);
+                this.setState({
+                    name: snap.val().name,
+                    email: snap.val().email,
+                    bio: snap.val().bio
+                });
+            });
     }
 
-    componentDidMount() {
+    componentDidMount() { }
 
-    }
-
-
-    onClickListener = (viewId) => {
+    onClickListener = viewId => {
         if (viewId == "update") {
-            this.userRef.child('name').set(this.state.name)
-            this.userRef.child('bio').set(this.state.bio)
+            this.userRef.child("name").set(this.state.name);
+            this.userRef.child("bio").set(this.state.bio);
         } else if (viewId == "login") {
 
         } else {
             Alert.alert("Alert", "Button pressed " + viewId);
         }
-
-    }
+    };
 
     render() {
         return (
             <View style={styles.container}>
                 <View style={[styles.inputContainer, styles.firstInput]}>
-                    <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/message/ultraviolet/50/3498db' }} />
-                    <TextInput style={styles.inputs}
+                    <Image
+                        style={styles.inputIcon}
+                        source={{
+                            uri: "https://png.icons8.com/message/ultraviolet/50/3498db"
+                        }}
+                    />
+                    <TextInput
+                        style={styles.inputs}
                         placeholder="Email"
                         value={this.state.email}
                         keyboardType="email-address"
                         underlineColorAndroid='transparent'
                         editable={false}
-                         />
+                    />
                 </View>
                 <View style={styles.inputContainer}>
-                    <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
-                    <TextInput style={styles.inputs}
-                        placeholder="Name" 
+                    <Image
+                        style={styles.inputIcon}
+                        source={{
+                            uri: "https://png.icons8.com/key-2/ultraviolet/50/3498db"
+                        }}
+                    />
+                    <TextInput
+                        style={styles.inputs}
+                        placeholder="Name"
                         value={this.state.name}
                         underlineColorAndroid='transparent'
                         onChangeText={(name) => this.setState({ name })} />
                 </View>
                 <View style={styles.inputContainer}>
-                    <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
-                    <TextInput style={styles.inputs}
-                        placeholder="Bio" 
+                    <Image
+                        style={styles.inputIcon}
+                        source={{
+                            uri: "https://png.icons8.com/key-2/ultraviolet/50/3498db"
+                        }}
+                    />
+                    <TextInput
+                        style={styles.inputs}
+                        placeholder="Bio"
                         value={this.state.bio}
-                        underlineColorAndroid='transparent'
-                        onChangeText={(bio) => this.setState({ bio })} />
+                        underlineColorAndroid="transparent"
+                        onChangeText={bio => this.setState({ bio })}
+                    />
                 </View>
-                 
 
-                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('update')}>
+                <TouchableHighlight
+                    style={[styles.buttonContainer, styles.loginButton]}
+                    onPress={() => this.onClickListener("update")}
+                >
                     <Text style={styles.loginText}>Update Profile</Text>
                 </TouchableHighlight>
-
             </View>
         );
     }
-
 }
 
 const styles = StyleSheet.create({
-    firstInput:{
+    firstInput: {
         marginTop: 20
     },
     container: {
         flex: 1,
-         
+
         alignItems: 'center',
         backgroundColor: '#DCDCDC',
     },
@@ -113,7 +135,7 @@ const styles = StyleSheet.create({
         height: 45,
         marginLeft: 16,
         borderBottomColor: '#FFFFFF',
-        flex: 1,
+        flex: 1
     },
     inputIcon: {
         width: 15,

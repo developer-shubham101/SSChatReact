@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
-    Text,
+  StyleSheet,
+  Text,
     View,
     TextInput,
     Button,
@@ -39,7 +39,7 @@ export default class LoginScreen extends React.Component {
         if (user) {
             console.log("Login ")
             console.log(user.toJSON())
-            var usersRef = firebase.database().ref("users/" + user.uid) ;
+            var usersRef = firebase.database().ref("users/" + user.uid);
             var emailRef = usersRef.child("email");
             var idRef = usersRef.child("userID");
             var onlineRef = usersRef.child("online");
@@ -109,7 +109,7 @@ export default class LoginScreen extends React.Component {
                         placeholder="Email"
                         keyboardType="email-address"
                         underlineColorAndroid='transparent'
-                       
+
                         onChangeText={(email) => this.setState({ email })} />
                 </View>
 
@@ -118,7 +118,7 @@ export default class LoginScreen extends React.Component {
                     <TextInput style={styles.inputs}
                         placeholder="Password"
                         secureTextEntry={true}
-                         
+
                         underlineColorAndroid='transparent'
                         onChangeText={(password) => this.setState({ password })} />
                 </View>

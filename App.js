@@ -46,7 +46,7 @@ const AppNavigator = createStackNavigator({
     }
 
 }, {
-        initialRouteName: 'LoginScreen',
+        initialRouteName: 'Chat',
     });
 const AppContainer = createAppContainer(AppNavigator);
 
