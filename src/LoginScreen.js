@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
+    StyleSheet,
+    Text,
     View,
     TextInput,
     Button,
-    TouchableHighlight,
+    TouchableOpacity,
     Image,
     Alert,
+    SafeAreaView,
     Dimensions
 } from 'react-native';
-import firebase from 'react-native-firebase'
+import firebase from 'react-native-firebase';
+import LinearGradient from 'react-native-linear-gradient';
+import Toast, { DURATION } from 'react-native-easy-toast';
+
+import appStyles, { colors, appColors } from './styles/common/index.style';
 
 export default class LoginScreen extends React.Component {
 
     constructor(props) {
         super(props);
-        state = {
-            email: 'shubham@gmail.com',
-            password: '123456',
+        this.state = {
+            // email: 'shubham@gmail.com',
+            // password: '123456',
+
+            email: '',
+            password: '',
         }
 
         var currentUser = firebase.auth().currentUser;
@@ -55,24 +63,47 @@ export default class LoginScreen extends React.Component {
             console.log("Logout ")
         }
     }
-
+    validate = (text) => {
+        // console.log(text);
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (reg.test(text) === false) {
+            console.log("Email is Not Correct");
+            // this.setState({ email: text })
+            return false;
+        }
+        else {
+            // this.setState({ email: text })
+            console.log("Email is Correct");
+            return true;
+        }
+    }
     onClickListener = (viewId) => {
         if (viewId == "register") {
-            firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                Alert.alert("Error", errorCode + errorMessage);
-                // ...
-            });
+            // firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
+            //     // Handle Errors here.
+            //     var errorCode = error.code;
+            //     var errorMessage = error.message;
+            //     Alert.alert("Error", errorCode + errorMessage);
+            //     // ...
+            // });
         } else if (viewId == "login") {
-            firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                Alert.alert("Error", errorCode + errorMessage);
-                // ...
-            });
+            console.log(this.state);
+            if (this.state.email == "") {
+                this.refs.toast.show('Please enter E-Mail');
+            } else if (!this.validate(this.state.email)) {
+                this.refs.toast.show('Please enter correct E-Mail');
+            } else if (this.state.password == "") {
+                this.refs.toast.show('Please enter password');
+            } else {
+                firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    Alert.alert("Error", errorCode + errorMessage);
+                    // ...
+                });
+            }
+
         } else {
             Alert.alert("Alert", "Button pressed " + viewId);
         }
@@ -101,67 +132,101 @@ export default class LoginScreen extends React.Component {
             //         }}
             //     />
             // </View>
+            <SafeAreaView style={{ flex: 1 }}>
 
-            <View style={styles.container}>
-                <View style={styles.inputContainer}>
-                    <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/message/ultraviolet/50/3498db' }} />
-                    <TextInput style={styles.inputs}
-                        placeholder="Email"
-                        keyboardType="email-address"
-                        underlineColorAndroid='transparent'
+                <LinearGradient style={styles.containerWrapper}
+                    start={{ x: 0, y: -.4 }} end={{ x: 1, y: 0 }}
+                    colors={[appColors.bgColor, '#303030']}  >
+                    <View style={styles.container} >
+                        <View style={styles.inputContainer}>
+                            {/* <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/message/ultraviolet/50/3498db' }} /> */}
+                            <TextInput
+                                style={styles.inputs}
+                                placeholderTextColor="#999797"
+                                placeholder="Email"
+                                keyboardType="email-address"
+                                underlineColorAndroid='transparent'
+                                returnKeyType={"next"}
+                                onChangeText={(email) => this.setState({ email })}
+                                onSubmitEditing={(event) => { this.refs.PasswordInput.focus() }}
+                            />
+                        </View>
 
-                        onChangeText={(email) => this.setState({ email })} />
-                </View>
+                        <View style={styles.inputContainer}>
+                            {/* <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} /> */}
+                            <TextInput style={styles.inputs}
+                                ref='PasswordInput'
+                                placeholderTextColor="#999797"
+                                returnKeyType={"done"}
+                                placeholder="Password"
+                                secureTextEntry={true}
 
-                <View style={styles.inputContainer}>
-                    <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
-                    <TextInput style={styles.inputs}
-                        placeholder="Password"
-                        secureTextEntry={true}
+                                underlineColorAndroid='transparent'
+                                onChangeText={(password) => this.setState({ password })}
+                                onSubmitEditing={(event) => { this.onClickListener('login') }}
+                            />
+                        </View>
 
-                        underlineColorAndroid='transparent'
-                        onChangeText={(password) => this.setState({ password })} />
-                </View>
+                        <TouchableOpacity activeOpacity={0.7} style={[styles.buttonContainer, styles.loginButtonContainer]} onPress={() => this.onClickListener('login')}>
+                            <Text style={styles.buttonText}>GET ACCESS</Text>
+                        </TouchableOpacity>
 
-                <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('login')}>
-                    <Text style={styles.loginText}>Login</Text>
-                </TouchableHighlight>
+                        {/*   <TouchableOpacity activeOpacity={0.7} style={styles.buttonContainer} onPress={() => this.onClickListener('restore_password')}>
+                            <Text>Forgot your password?</Text>
+                        </TouchableOpacity> */}
 
-                <TouchableHighlight style={styles.buttonContainer} onPress={() => this.onClickListener('restore_password')}>
-                    <Text>Forgot your password?</Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight style={styles.buttonContainer} onPress={() => this.onClickListener('register')}>
-                    <Text>Register</Text>
-                </TouchableHighlight>
-            </View>
+                        <TouchableOpacity activeOpacity={0.7} style={[styles.buttonContainer, styles.regButtonContainer]} onPress={() => this.onClickListener('register')}>
+                            <Text style={[styles.buttonText, styles.registerButtonText]}>GET ACCESS FIRST TIME</Text>
+                        </TouchableOpacity>
+                    </View>
+                </LinearGradient>
+                <Toast
+					ref="toast"
+					style={appStyles.toastStyle}
+					position='bottom'
+					positionValue={100}
+					fadeInDuration={100}
+					fadeOutDuration={1000}
+					opacity={0.8}
+					textStyle={{ color: '#fff' }} />
+            </SafeAreaView>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    containerWrapper: {
+        flex: 1,
+    },
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#DCDCDC',
+        // alignItems: 'center',
+        backgroundColor: '#16161600', // '#6b6d6e',
     },
     inputContainer: {
-        borderBottomColor: '#F5FCFF',
-        backgroundColor: '#FFFFFF',
-        borderRadius: 30,
-        borderBottomWidth: 1,
-        width: 250,
-        height: 45,
+
+        // backgroundColor: '#FFFFFF',
+        // borderRadius: 30,
+        // borderBottomWidth: 1,
+        marginStart: 20,
+        marginEnd: 20,
+        width: "100%",
+        height: 60,
         marginBottom: 20,
         flexDirection: 'row',
-        alignItems: 'center'
     },
     inputs: {
-        height: 45,
+        borderBottomColor: '#d9983d',
+        borderBottomWidth: 2,
+        color: "#ededed",
+        // backgroundColor: '#ddd',
+        height: "100%",
         marginLeft: 16,
-        borderBottomColor: '#FFFFFF',
+        paddingStart: 30,
+        // borderBottomColor: '#FFFFFF',
         flex: 1,
+        fontFamily: "IntroCondLightFree"
     },
     inputIcon: {
         width: 30,
@@ -170,18 +235,23 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     buttonContainer: {
-        height: 45,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 20,
-        width: 250,
-        borderRadius: 30,
+        marginStart: 70, 
     },
-    loginButton: {
-        backgroundColor: "#00b5ec",
+    regButtonContainer: {
+        marginTop: 20
     },
-    loginText: {
-        color: 'white',
-    }
+
+    loginButtonContainer: {
+        marginTop: 60
+    },
+
+    buttonText: {
+        color: "#ededed",
+        fontFamily: "IntroCondLightFree",
+        fontSize: 18
+    },
+    registerButtonText: {
+        fontSize: 14
+    },
+   
 });

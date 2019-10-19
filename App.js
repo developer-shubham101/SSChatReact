@@ -13,9 +13,10 @@ import UsersList from './src/UsersList'
 import ChatScreen from './src/ChatScreen'
 import ProfileScreen from './src/ProfileScreen'
 import Examples from './src/Examples'
-import EditProfileScreen from './src/EditProfileScreen'
+import EditProfileScreen from './src/EditProfileScreen';
+import AuthPage from "./src/AuthPage";
 
-import { createStackNavigator, createAppContainer, createDrawerNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createDrawerNavigator, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation';
 
 
 
@@ -28,12 +29,10 @@ const TabNavigator = createBottomTabNavigator({
     },
 
 });
-const AppNavigator = createStackNavigator({
-    LoginScreen: {
-        screen: LoginScreen,
-    },
-    EditProfileScreen :{
-        screen :EditProfileScreen
+const SignedInNavigator = createStackNavigator({
+
+    EditProfileScreen: {
+        screen: EditProfileScreen
     },
     Chat: {
         screen: ChatScreen
@@ -44,11 +43,40 @@ const AppNavigator = createStackNavigator({
     TabNavigator: {
         screen: TabNavigator
     }
-
 }, {
-        initialRouteName: 'Chat',
-    });
-const AppContainer = createAppContainer(AppNavigator);
+    initialRouteName: 'TabNavigator',
+    headerMode: 'none',
+    mode: 'modal'
+});
+
+const SignedOutNavigator = createStackNavigator({
+    LoginScreen: {
+        screen: LoginScreen,
+    },
+}, {
+    initialRouteName: 'LoginScreen',
+    headerMode: 'none',
+    mode: 'modal'
+});
+
+
+export const SwitchNavigator = createSwitchNavigator({
+    AuthPage: {
+        screen: AuthPage
+    },
+    SignedOut: {
+        screen: SignedOutNavigator
+    },
+    SignedIn: {
+        screen: SignedInNavigator
+    },
+}, {
+    initialRouteName: "AuthPage",
+
+});
+
+
+const AppContainer = createAppContainer(SwitchNavigator);
 
 export default class App extends React.Component {
     render() {

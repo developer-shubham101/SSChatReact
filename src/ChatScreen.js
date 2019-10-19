@@ -9,6 +9,7 @@ import {
     TouchableHighlight,
     Image,
     Dimensions,
+    SafeAreaView,
     Alert,
     KeyboardAvoidingView
 } from 'react-native';
@@ -28,7 +29,7 @@ class Constant {
 export default class ChatScreen extends React.Component {
 
     // MESSAGE_TYPE_TXT = "txt"
-
+    chatRef;
     currentUser = firebase.auth().currentUser;
     constructor(props) {
         super(props);
@@ -42,7 +43,7 @@ export default class ChatScreen extends React.Component {
         // Alert.alert("Alert", this.state.userID);
         this.chatRef = firebase.database().ref("chat/" + this.fetchLower(userID, this.currentUser.uid));
     }
-    chatRef;
+
     fetchLower(str1, str2) {
         if (str1.localeCompare(str2) < 0) {
             return str1 + "_" + str2
@@ -241,9 +242,12 @@ export default class ChatScreen extends React.Component {
     //renderItem={({ item }) => <Text style={styles.item} onPress={this.openChatScreen.bind(this, item)} >{item.key}</Text>}
     render() {
         return (
+            <SafeAreaView style={{ flex: 1 }}>
 
-            <KeyboardAvoidingView behavior="padding" style={styles.keyboard}>
                 <View style={styles.container}>
+                    <View style={styles.toolbarWrapper}>
+                        <Text style={styles.toolbarTitle}>Chat Screen</Text>
+                    </View>
                     <View style={styles.messageList}>
                         <FlatList
                             data={this.state.list}
@@ -280,16 +284,23 @@ export default class ChatScreen extends React.Component {
                         </View>
                     </View>
                 </View>
-            </KeyboardAvoidingView>
+
+            </SafeAreaView>
         );
     }
 }
 const styles = StyleSheet.create({
+    toolbarWrapper: {
+        height: 90,
+        backgroundColor: "#000"
+    },
+
 
     container: {
         flex: 1,
-        paddingTop: 22,
-        backgroundColor: '#FAFAFD'
+        justifyContent: 'center',
+        // alignItems: 'center',
+        backgroundColor: '#303030', // '#6b6d6e',
     },
 
     item: {
@@ -383,7 +394,6 @@ const styles = StyleSheet.create({
         margin: 5,
     },
     messageList: {
-        flex: 3,
     },
     input: {
         flexDirection: 'row',

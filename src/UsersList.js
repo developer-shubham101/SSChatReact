@@ -6,11 +6,13 @@ import {
 	FlatList,
 	TextInput,
 	Button,
+	SafeAreaView,
 	TouchableHighlight,
 	Image,
 	Alert
 } from 'react-native';
 
+import appStyles, { colors, appColors } from './styles/common/index.style';
 import firebase from 'react-native-firebase'
 import CustomImage from './cusomComponents/CustomImage'
 export default class UsersList extends React.Component {
@@ -26,11 +28,12 @@ export default class UsersList extends React.Component {
 		console.log(usersRef)
 		usersRef.on('value', (snapshot) => {
 			console.log(snapshot)
-			snapshot.forEach((snap) => {3
+			snapshot.forEach((snap) => {
+				 
 				console.log("snaps")
 				var item = snap.val();
-                let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png'
-                let name = item.name ? item.name : item.email
+				let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png'
+				let name = item.name ? item.name : item.email
 				this.state.list.push({ email: item.email, userID: item.userID, image: image, name: name })
 			});
 		});
@@ -38,7 +41,7 @@ export default class UsersList extends React.Component {
 	}
 	onClickListener = (viewId) => {
 		if (viewId == "logout") {
-			 
+
 		} else {
 			Alert.alert("Alert", "Button pressed " + viewId);
 		}
@@ -55,46 +58,64 @@ export default class UsersList extends React.Component {
 	goBack = () => {
 		this.props.navigation.goBack();
 	}
-	 
+
 	renderItem = ({ item }) => {
 		return (
+
 			<TouchableHighlight onPress={this.openChatScreen.bind(this, item)}>
 				<View style={styles.row}>
 					{/* <Image source={{ uri: item.image }} style={styles.pic} /> */}
-					
-					{/* <CustomImage src={ item.image } style={styles.pic} /> */}
-					<View>
+
+					<CustomImage src={ item.image } iconStyle={styles.pic} />
+					<View style={styles.rowContentWrapper}>
 						<View style={styles.nameContainer}>
 							<Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">{item.name}</Text>
 							<Text style={styles.mblTxt}>Mobile</Text>
 						</View>
 						<View style={styles.msgContainer}>
-							<Text style={styles.msgTxt}>{item.status}</Text>
+							<Text style={styles.msgTxt}>Online{/* item.status */}</Text>
 						</View>
 					</View>
 				</View>
 			</TouchableHighlight>
+
 		);
 	}
 	render() {
 		return (
-			<View style={styles.container}>
-				<FlatList
-					extraData={this.state}
-					data={this.state.list}
-					renderItem={this.renderItem}
+			<SafeAreaView style={{ flex: 1 }}>
+				<View style={styles.toolbarWrapper}>
+					<Text style={styles.toolbarTitle}>USERS</Text>
+				</View>
+				<View style={styles.container}>
+					<FlatList
+						extraData={this.state}
+						data={this.state.list}
+						renderItem={this.renderItem}
 
-				/>
-				{/* renderItem={({ item }) => <Text style={styles.item} onPress={this.openChatScreen.bind(this, item)} >{item.email}</Text>} */}
-				
-
-
-			</View>
+					/>
+				</View>
+			</SafeAreaView>
 		);
 	}
 }
 const styles = StyleSheet.create({
+	toolbarWrapper: {
+		height: 60,
+		backgroundColor: appColors.bgColor
+	},
+
+	toolbarTitle: {
+
+		color: "#d9983d",
+		fontFamily: "IntroCondLightFree",
+		marginTop: 30,
+		marginStart: 20,
+		fontSize: 30
+	},
+
 	container: {
+		backgroundColor: appColors.bgColor,
 		flex: 1,
 		paddingTop: 22
 	},
@@ -113,37 +134,42 @@ const styles = StyleSheet.create({
 		width: 250,
 		borderRadius: 30,
 	},
-	loginButton: {
-		backgroundColor: "#00b5ec",
-	},
-	loginText: {
-		color: 'white',
-	},
 
+	rowContentWrapper: {
+		flexDirection: "column",
+
+		flex: 1,
+	},
 	row: {
+		// backgroundColor: "#ddd",
+		marginStart: 30,
 		flexDirection: 'row',
 		alignItems: 'center',
-		borderColor: '#DCDCDC',
-		backgroundColor: '#fff',
+		borderColor: '#121212',
 		borderBottomWidth: 1,
-		padding: 10,
+		paddingTop: 10,
+		paddingBottom: 10,
+
 	},
 	pic: {
+		marginEnd: 10,
 		borderRadius: 30,
-		width: 60,
-		height: 60,
+		width: 40,
+		height: 40,
 	},
 	nameContainer: {
 		flexDirection: 'row',
-		justifyContent: 'space-between',
-		width: 280,
+		// justifyContent: 'space-between',
+
 	},
 	nameTxt: {
-		marginLeft: 15,
-		 
+
+		flex: 1,
 		color: '#222',
 		fontSize: 14,
-		width: 170,
+		flex: 1,
+		color: "#c4c4a1",
+
 	},
 	mblTxt: {
 		fontWeight: '200',
@@ -158,6 +184,6 @@ const styles = StyleSheet.create({
 		fontWeight: '400',
 		color: '#008B8B',
 		fontSize: 12,
-		marginLeft: 15,
+
 	},
 });
