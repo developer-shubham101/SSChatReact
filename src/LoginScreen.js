@@ -79,13 +79,24 @@ export default class LoginScreen extends React.Component {
     }
     onClickListener = (viewId) => {
         if (viewId == "register") {
-            // firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
-            //     // Handle Errors here.
-            //     var errorCode = error.code;
-            //     var errorMessage = error.message;
-            //     Alert.alert("Error", errorCode + errorMessage);
-            //     // ...
-            // });
+
+            if (this.state.email == "") {
+                this.refs.toast.show('Please enter E-Mail');
+            } else if (!this.validate(this.state.email)) {
+                this.refs.toast.show('Please enter correct E-Mail');
+            } else if (this.state.password == "") {
+                this.refs.toast.show('Please enter password');
+            } else { 
+                firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    Alert.alert("Error", errorCode + errorMessage);
+                    // ...
+                });
+            }
+
+
         } else if (viewId == "login") {
             console.log(this.state);
             if (this.state.email == "") {
@@ -181,14 +192,14 @@ export default class LoginScreen extends React.Component {
                     </View>
                 </LinearGradient>
                 <Toast
-					ref="toast"
-					style={appStyles.toastStyle}
-					position='bottom'
-					positionValue={100}
-					fadeInDuration={100}
-					fadeOutDuration={1000}
-					opacity={0.8}
-					textStyle={{ color: '#fff' }} />
+                    ref="toast"
+                    style={appStyles.toastStyle}
+                    position='bottom'
+                    positionValue={100}
+                    fadeInDuration={100}
+                    fadeOutDuration={1000}
+                    opacity={0.8}
+                    textStyle={{ color: '#fff' }} />
             </SafeAreaView>
         );
     }
@@ -235,7 +246,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     buttonContainer: {
-        marginStart: 70, 
+        marginStart: 70,
     },
     regButtonContainer: {
         marginTop: 20
@@ -253,5 +264,5 @@ const styles = StyleSheet.create({
     registerButtonText: {
         fontSize: 14
     },
-   
+
 });
