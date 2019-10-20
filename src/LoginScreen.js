@@ -86,7 +86,7 @@ export default class LoginScreen extends React.Component {
                 this.refs.toast.show('Please enter correct E-Mail');
             } else if (this.state.password == "") {
                 this.refs.toast.show('Please enter password');
-            } else { 
+            } else {
                 firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
                     // Handle Errors here.
                     var errorCode = error.code;
@@ -147,7 +147,8 @@ export default class LoginScreen extends React.Component {
 
                 <LinearGradient style={styles.containerWrapper}
                     start={{ x: 0, y: -.4 }} end={{ x: 1, y: 0 }}
-                    colors={[appColors.bgColor, '#303030']}  >
+                    colors={[appColors.bgColor, '#303030']}
+                >
                     <View style={styles.container} >
                         <View style={styles.inputContainer}>
                             {/* <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/message/ultraviolet/50/3498db' }} /> */}
@@ -178,16 +179,25 @@ export default class LoginScreen extends React.Component {
                             />
                         </View>
 
-                        <TouchableOpacity activeOpacity={0.7} style={[styles.buttonContainer, styles.loginButtonContainer]} onPress={() => this.onClickListener('login')}>
+                        <TouchableOpacity
+                            activeOpacity={0.7}
+                            style={[styles.buttonContainer, styles.loginButtonContainer]}
+                            onPress={() => this.onClickListener('login')}>
+
                             <Text style={styles.buttonText}>GET ACCESS</Text>
+                            <Image style={styles.loginIcon} source={require("./../assets/img/ic_short_next.png")} />
                         </TouchableOpacity>
 
                         {/*   <TouchableOpacity activeOpacity={0.7} style={styles.buttonContainer} onPress={() => this.onClickListener('restore_password')}>
                             <Text>Forgot your password?</Text>
                         </TouchableOpacity> */}
 
-                        <TouchableOpacity activeOpacity={0.7} style={[styles.buttonContainer, styles.regButtonContainer]} onPress={() => this.onClickListener('register')}>
+                        <TouchableOpacity
+                            activeOpacity={0.7}
+                            style={[styles.buttonContainer, styles.regButtonContainer]}
+                            onPress={() => this.onClickListener('register')}>
                             <Text style={[styles.buttonText, styles.registerButtonText]}>GET ACCESS FIRST TIME</Text>
+                            <Image style={styles.regIcon} source={require("./../assets/img/ic_long_next.png")} />
                         </TouchableOpacity>
                     </View>
                 </LinearGradient>
@@ -247,6 +257,8 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         marginStart: 70,
+        flexDirection: "row",
+
     },
     regButtonContainer: {
         marginTop: 20
@@ -260,6 +272,21 @@ const styles = StyleSheet.create({
         color: "#ededed",
         fontFamily: "IntroCondLightFree",
         fontSize: 18
+    },
+    loginIcon: {
+        width: 45,
+        marginStart: 30,
+        // backgroundColor: "#000",
+        height: 20,
+        resizeMode: "center"
+    },
+
+    regIcon:{
+        width: 65,
+        marginStart: 30,
+        // backgroundColor: "#000",
+        height: 20,
+        resizeMode: "center"
     },
     registerButtonText: {
         fontSize: 14

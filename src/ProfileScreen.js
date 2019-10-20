@@ -4,21 +4,26 @@ import {
     Text,
     View,
     Image,
+    SafeAreaView,
     TouchableOpacity,
     Alert,
     TouchableHighlight
 } from 'react-native';
 import firebase from 'react-native-firebase'
 import ImagePicker from 'react-native-image-picker';
+
+import appStyles, { colors, appColors } from './styles/common/index.style';
+
+import LinearGradient from 'react-native-linear-gradient';
 export default class ProfileScreen extends React.Component {
     currentUser = firebase.auth().currentUser;
     constructor(props) {
         super(props);
-        this.state = { avatarSource: "https://bootdey.com/img/Content/avatar/avatar6.png", email: '', name: '', bio: ""}
+        this.state = { avatarSource: "https://bootdey.com/img/Content/avatar/avatar6.png", email: '', name: '', bio: "" }
 
-        firebase.database().ref("users/" + this.currentUser.uid ).once("value", (snap) => {
+        firebase.database().ref("users/" + this.currentUser.uid).once("value", (snap) => {
             console.log(snap)
-            this.setState({name: snap.val().name, email: snap.val().email, bio: snap.val().bio}) 
+            this.setState({ name: snap.val().name, email: snap.val().email, bio: snap.val().bio })
         });
     }
     componentDidMount() {
@@ -63,7 +68,7 @@ export default class ProfileScreen extends React.Component {
         // More info on all the options is below in the API Reference... just some common use cases shown here
         const options = {
             title: 'Select Avatar',
-            customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+             
             storageOptions: {
                 skipBackup: true,
                 path: 'images',
@@ -96,12 +101,12 @@ export default class ProfileScreen extends React.Component {
                 var metadata = {
                     contentType: 'image/jpeg',
                 };
-                var uploadTask = mountainsRef.put(response.uri,  metadata);
+                var uploadTask = mountainsRef.put(response.uri, metadata);
 
 
                 // Listen for state changes, errors, and completion of the upload.
                 uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-                    function (snapshot) {
+                    (snapshot) => {
                         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                         console.log('Upload is ' + progress + '% done');
@@ -113,23 +118,21 @@ export default class ProfileScreen extends React.Component {
                                 console.log('Upload is running');
                                 break;
                         }
-                    }, function (error) {
+                    }, (error) => {
 
                         // A full list of error codes is available at
                         // https://firebase.google.com/docs/storage/web/handle-errors
                         switch (error.code) {
                             case 'storage/unauthorized':
-                                console.log(' User doesn\'t have permission to access the object' )
+                                console.log(' User doesn\'t have permission to access the object')
                                 break;
 
                             case 'storage/canceled':
-                                console.log('User canceled the upload' )
+                                console.log('User canceled the upload')
                                 break;
 
-
-
                             case 'storage/unknown':
-                                console.log(' Unknown error occurred, inspect error.serverResponse' )
+                                console.log(' Unknown error occurred, inspect error.serverResponse')
                                 break;
                         }
                     }, function () {
@@ -155,16 +158,16 @@ export default class ProfileScreen extends React.Component {
                 'Alert!',
                 'Are you sure to logout',
                 [
-                    { 
-                        text: 'Yes', onPress: () => { 
-                        firebase.auth().signOut().then(() => {
-                            this.goLogin();
-                        }).catch(function (error) {
-                            console.log(error)
-                            Alert.alert("Logout error", error);
-                        });
-                    }
-                 },
+                    {
+                        text: 'Yes', onPress: () => {
+                            firebase.auth().signOut().then(() => {
+                                this.goLogin();
+                            }).catch(function (error) {
+                                console.log(error)
+                                Alert.alert("Logout error", error);
+                            });
+                        }
+                    },
                     {
                         text: 'No',
                         onPress: () => console.log('Cancel Pressed'),
@@ -174,8 +177,8 @@ export default class ProfileScreen extends React.Component {
                 { cancelable: false },
             );
 
-			
-		} else if (viewId == "editProfile") {
+
+        } else if (viewId == "editProfile") {
             this.props.navigation.navigate("EditProfileScreen")
 
         } else if (viewId == 'changeDP') {
@@ -207,42 +210,54 @@ export default class ProfileScreen extends React.Component {
     }
     render() {
         return (
-            <View style={styles.container}>
+            <SafeAreaView style={{ flex: 1 }}>
+                <LinearGradient style={styles.containerWrapper}
+                    start={{ x: 0, y: -.4 }} end={{ x: 1, y: 0 }}
+                    colors={[appColors.bgColor, '#303030']}
+                >
+                    <View style={styles.container}>
 
-                <View style={styles.header}></View>
+                        <View style={styles.header}></View>
 
-                <TouchableHighlight style={styles.avatarWrapper} onPress={() => this.onClickListener('changeDP')}>
-                    <Image style={styles.avatar} source={{ uri: this.state.avatarSource }} />
-                </TouchableHighlight>
+                        <TouchableHighlight style={styles.avatarWrapper} onPress={() => this.onClickListener('changeDP')}>
+                            <Image style={styles.avatar} source={{ uri: this.state.avatarSource }} />
+                        </TouchableHighlight>
 
-                <View style={styles.body}>
-                    <Text style={styles.name}>{this.state.name}</Text>
-                    <Text style={styles.info}>{this.state.email}</Text>
-                    <Text style={styles.description}>{this.state.bio}</Text>
-                </View>
-              
+                        <View style={styles.body}>
+                            <Text style={styles.name}>{this.state.name}</Text>
+                            <Text style={styles.info}>{this.state.email}</Text>
+                            <Text style={styles.description}>{this.state.bio}</Text>
+                        </View>
 
-                <View style={styles.bottomContainer}>
-                    <TouchableOpacity style={styles.buttonContainer} onPress={() => this.onClickListener('editProfile')}>
-                        <Text style={styles.buttonText} >Edit Profile</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonContainer} onPress={() => this.onClickListener('logout')}>
-                        <Text style={styles.buttonText}>Logout</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
+
+                        <View style={styles.bottomContainer}>
+                            <TouchableOpacity style={styles.buttonContainer} onPress={() => this.onClickListener('editProfile')}>
+                                <Text style={styles.buttonText} >Edit Profile </Text>
+                                <Image style={[styles.buttonIcon, styles.buttonIconNext]} source={require("./../assets/img/ic_long_next.png")} />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={[styles.logoutButton]} onPress={() => this.onClickListener('logout')}>
+                                <Image style={[styles.buttonIcon, styles.buttonIconPrevious]} source={require("./../assets/img/ic_short_previous.png")} />
+                                <Text style={styles.buttonText}>Logout</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </LinearGradient>
+            </SafeAreaView>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    containerWrapper: {
+        flex: 1,
+    },
     container: {
         flex: 1,
         flexDirection: 'column',
-
+        backgroundColor: '#16161600', // '#6b6d6e',
     },
     header: {
-        backgroundColor: "#00BFFF",
+        backgroundColor: "#000",
         height: 100,
     },
     avatarWrapper: {
@@ -258,13 +273,13 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         borderRadius: 50,
-        borderWidth: 4,
-        borderColor: "white",
+        borderWidth: .5,
+        borderColor: "#000",
     },
     name: {
         fontSize: 22,
-        color: "#FFFFFF",
-        fontWeight: '600',
+        color: "#ededed",
+        fontFamily: "IntroCondLightFree",
     },
     body: {
         marginTop: 40,
@@ -272,48 +287,75 @@ const styles = StyleSheet.create({
         padding: 30,
     },
 
-    name: {
-        fontSize: 28,
-        color: "#696969",
-        fontWeight: "600"
-    },
+
     info: {
         fontSize: 16,
-        color: "#00BFFF",
+        color: "#ededed",
+        fontFamily: "IntroCondLightFree",
         marginTop: 10
     },
     description: {
-        fontSize: 16,
+        fontSize: 12,
         color: "#696969",
+        fontFamily: "IntroCondLightFree",
         marginTop: 10,
 
     },
     bottomContainer: {
         flex: 1,
-        flexDirection: 'row',
-        alignSelf: 'flex-end',
+        // flexDirection: 'row',
+        // alignSelf: 'flex-end',
+        // backgroundColor: "#ddd",
+        width: "100%",
         position: 'absolute',
         bottom: 10
 
     },
     buttonContainer: {
-        flex: 1,
-        marginTop: 10,
-        height: 35,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 20,
-        width: 250,
-        borderRadius: 30,
-        backgroundColor: "#00BFFF",
-        marginEnd: 5,
-        marginStart: 5
+        // flex: 1,
+        // marginTop: 10,
+        // height: 35,
+        // flexDirection: 'row',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        // marginBottom: 20,
+        // width: 250,
+        // borderRadius: 30,
+        // backgroundColor: "#00BFFF",
+        // marginEnd: 5,
+        // marginStart: 5
 
+        flexDirection: "row",
+        marginStart: 40,
+    },
+    logoutButton: {
+        marginEnd: 30,
+        marginTop: 40,
+        // backgroundColor: "#ddd",
+        alignSelf: "flex-end",
+        flexDirection: "row",
     },
     buttonText: {
-        fontSize: 14,
-        color: "#FFFFFF",
-        fontWeight: '100',
-    }
+        // fontSize: 14,
+        // color: "#FFFFFF",
+        // fontWeight: '100',
+
+        color: "#ededed",
+        fontFamily: "IntroCondLightFree",
+        fontSize: 18
+    },
+    buttonIcon: {
+        width: 65,
+
+        // backgroundColor: "#000",
+        height: 20,
+        resizeMode: "center"
+    },
+    buttonIconNext: {
+        marginStart: 30,
+    },
+    buttonIconPrevious: {
+        marginEnd: 30,
+
+    },
 });

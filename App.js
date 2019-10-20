@@ -21,12 +21,33 @@ import { createStackNavigator, createAppContainer, createDrawerNavigator, create
 
 
 const TabNavigator = createBottomTabNavigator({
-    UsersList: {
-        screen: UsersList,
-    },
     Profile: {
         screen: ProfileScreen
     },
+    UsersList: {
+        screen: UsersList,
+        navigationOptions: () => ({
+            title: `People`,
+            
+            
+			/* tabBarIcon: ({ focused }) => {
+				var icon = require('../../assets/img/ic_booking.png');
+				if (focused) {
+					icon = require('../../assets/img/ic_booking_active.png');
+				}
+				return (
+					<Image style={{ width: 22, height: 22 }} source={icon} />
+				)
+			} */
+        }),
+        tabBarOptions : () => ({
+          
+            activeTintColor : "#ddd", 
+            labelStyle   : {backgroundColor: "#dd0"}
+		 
+		}),
+    },
+   
 
 });
 const SignedInNavigator = createStackNavigator({

@@ -7,7 +7,7 @@ import {
 	TextInput,
 	Button,
 	SafeAreaView,
-	TouchableHighlight,
+	TouchableOpacity,
 	Image,
 	Alert
 } from 'react-native';
@@ -29,12 +29,20 @@ export default class UsersList extends React.Component {
 		usersRef.on('value', (snapshot) => {
 			console.log(snapshot)
 			snapshot.forEach((snap) => {
-				 
-				console.log("snaps")
-				var item = snap.val();
-				let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png'
-				let name = item.name ? item.name : item.email
-				this.state.list.push({ email: item.email, userID: item.userID, image: image, name: name })
+
+				console.log("snaps", snap);
+				// console.log(snap);
+				if (snap.key != this.currentUser.uid) {
+					var item = snap.val();
+					let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png';
+					let name = item.name ? item.name : item.email;
+
+					var listOfUsers = this.state.list;
+
+					listOfUsers.push({ email: item.email, userID: item.userID, image: image, name: name });
+					this.setState(listOfUsers);
+
+				}
 			});
 		});
 
@@ -62,11 +70,13 @@ export default class UsersList extends React.Component {
 	renderItem = ({ item }) => {
 		return (
 
-			<TouchableHighlight onPress={this.openChatScreen.bind(this, item)}>
+			<TouchableOpacity
+				activeOpacity={0.7}
+				onPress={this.openChatScreen.bind(this, item)}>
 				<View style={styles.row}>
 					{/* <Image source={{ uri: item.image }} style={styles.pic} /> */}
 
-					<CustomImage src={ item.image } iconStyle={styles.pic} />
+					<CustomImage src={item.image} iconStyle={styles.pic} />
 					<View style={styles.rowContentWrapper}>
 						<View style={styles.nameContainer}>
 							<Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">{item.name}</Text>
@@ -77,7 +87,7 @@ export default class UsersList extends React.Component {
 						</View>
 					</View>
 				</View>
-			</TouchableHighlight>
+			</TouchableOpacity>
 
 		);
 	}
