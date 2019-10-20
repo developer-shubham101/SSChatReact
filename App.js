@@ -6,7 +6,7 @@
  * @flow
  */
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import firebase from 'react-native-firebase';
 import LoginScreen from './src/LoginScreen'
 import UsersList from './src/UsersList'
@@ -16,40 +16,67 @@ import Examples from './src/Examples'
 import EditProfileScreen from './src/EditProfileScreen';
 import AuthPage from "./src/AuthPage";
 
-import { createStackNavigator, createAppContainer, createDrawerNavigator, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation';
+import {
+    createStackNavigator,
+    createAppContainer,
+    createDrawerNavigator,
+    createBottomTabNavigator,
+    createSwitchNavigator,
+    TabBarBottom
+} from 'react-navigation';
 
+const TabScreen = (props) => (<View><Text>HELLO WORLD</Text></View>);
 
-
+const TabBarComponent = (props) => (<TabBarBottom {...props} />);
+//ic_user.png
 const TabNavigator = createBottomTabNavigator({
-    Profile: {
-        screen: ProfileScreen
-    },
+
     UsersList: {
         screen: UsersList,
         navigationOptions: () => ({
-            title: `People`,
-            
-            
-			/* tabBarIcon: ({ focused }) => {
-				var icon = require('../../assets/img/ic_booking.png');
-				if (focused) {
-					icon = require('../../assets/img/ic_booking_active.png');
-				}
-				return (
-					<Image style={{ width: 22, height: 22 }} source={icon} />
-				)
-			} */
+            title: `MATES`,
+            tabBarIcon: ({ focused }) => {
+                var icon = require('./assets/img/ic_chat.png');
+                if (focused) {
+                    icon = require('./assets/img/ic_chat.png');
+                }
+                return (
+                    <Image style={{ width: 22, height: 22 }} source={icon} />
+                )
+            }
         }),
-        tabBarOptions : () => ({
-          
-            activeTintColor : "#ddd", 
-            labelStyle   : {backgroundColor: "#dd0"}
-		 
-		}),
     },
-   
-
-});
+    Profile: {
+        screen: ProfileScreen,
+        navigationOptions: () => ({
+            title: `PROFILE`,
+            tabBarIcon: ({ focused }) => {
+                var icon = require('./assets/img/ic_user.png');
+                if (focused) {
+                    icon = require('./assets/img/ic_user.png');
+                }
+                return (
+                    <Image style={{ width: 22, height: 22 }} source={icon} />
+                )
+            }
+        }),
+    },
+},
+    {
+        // tabBarComponent: props => <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} />,
+        tabBarOptions: {
+            activeTintColor: '#d6d6d6',
+            labelStyle: {
+                fontSize: 12,
+            },
+            style: {
+                backgroundColor: '#141414',
+            },
+            labelStyle: {
+                fontFamily: "IntroCondLightFree",
+            },
+        }
+    });
 const SignedInNavigator = createStackNavigator({
 
     EditProfileScreen: {
