@@ -7,9 +7,10 @@ import com.facebook.react.PackageList;
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
+import io.github.elyx0.reactnativedocumentpicker.DocumentPickerPackage;
+import io.invertase.firebase.RNFirebasePackage;
 import com.imagepicker.ImagePickerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import io.invertase.firebase.database.RNFirebaseDatabasePackage;
 import io.invertase.firebase.storage.RNFirebaseStoragePackage;
@@ -18,7 +19,9 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
-
+ 
+import io.github.elyx0.reactnativedocumentpicker.DocumentPickerPackage; // Import package 
+ 
 
 import java.util.List;
 
@@ -38,7 +41,8 @@ public class MainApplication extends Application implements ReactApplication {
       // packages.add(new MyReactNativePackage());
       packages.add(new RNFirebaseAuthPackage());
       packages.add(new RNFirebaseDatabasePackage());
-      packages.add(new RNFirebaseStoragePackage());
+	  packages.add(new RNFirebaseStoragePackage());
+	// packages.add(new DocumentPickerPackage()); 
       return packages;
     }
 

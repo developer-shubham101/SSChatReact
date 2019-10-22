@@ -35,6 +35,10 @@ target 'SSChatReact' do
 
   pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
+
+  pod 'react-native-document-picker', :path => '../node_modules/react-native-document-picker'
+
   target 'SSChatReactTests' do
     inherit! :search_paths
     # Pods for testing

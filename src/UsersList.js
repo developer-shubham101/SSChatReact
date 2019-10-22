@@ -23,8 +23,11 @@ export default class UsersList extends React.Component {
 		this.state = { list: [], images: {} }
 	}
 	componentDidMount() {
+		const instance = firebase.initializeApp({
+			persistence: true
+		});
 
-		var usersRef = firebase.database().ref("users");
+		var usersRef = instance.database().ref("users");
 		console.log(usersRef)
 		usersRef.on('value', (snapshot) => {
 			console.log(snapshot)
