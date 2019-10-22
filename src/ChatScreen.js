@@ -76,7 +76,7 @@ export default class ChatScreen extends React.Component {
 
 		});
 	}
-	changeDP() {
+	pickGallery(type) {
 
 		// well that came from https://github.com/react-native-community/react-native-image-picker
 		// More info on all the options is below in the API Reference... just some common use cases shown here
@@ -86,6 +86,7 @@ export default class ChatScreen extends React.Component {
 				skipBackup: true,
 				path: 'images',
 			},
+			mediaType: type
 		};
         /**
          * The first arg is the options object for customization (it can also be null or omitted for default options),
@@ -253,7 +254,9 @@ export default class ChatScreen extends React.Component {
 				this.sendMessage(this.state.message, Constant.MESSAGE_TYPE_TXT);
 			}
 		} else if (viewId == 'image') {
-			this.changeDP();
+			this.pickGallery('photo');
+		} else if (viewId == 'video') {
+			this.pickGallery('video');
 		} else if (viewId == 'back') {
 			this.props.navigation.goBack();
 		} else if (viewId == 'file') {
@@ -369,7 +372,7 @@ export default class ChatScreen extends React.Component {
 							</View>
 							<View style={styles.messageList}>
 								<FlatList
-									 
+
 									style={styles.messageListItself}
 									data={this.state.list}
 									extraData={this.state}
@@ -397,7 +400,7 @@ export default class ChatScreen extends React.Component {
 									<TouchableOpacity style={[styles.bottomButtonIconsContainer]} onPress={() => this.onClickListener('image')}>
 										<Image source={require("./../assets/img/ic_photo_camera.png")} style={styles.bottomButtonIcons}></Image>
 									</TouchableOpacity>
-									<TouchableOpacity style={[styles.bottomButtonIconsContainer]} onPress={() => this.onClickListener('file')}>
+									<TouchableOpacity style={[styles.bottomButtonIconsContainer]} onPress={() => this.onClickListener('video')}>
 										<Image source={require("./../assets/img/ic_file.png")} style={styles.bottomButtonIcons}></Image>
 									</TouchableOpacity>
 									<TouchableOpacity style={[styles.bottomButtonIconsContainer]} onPress={() => this.onClickListener('file')}>
@@ -560,7 +563,7 @@ const styles = StyleSheet.create({
 	leftImageImage: {
 		width: 100,
 		height: 100,
-		borderRadius: 0,
+		borderRadius: 5,
 	},
 	rightImageMsg: {
 		flexDirection: 'row',
@@ -584,7 +587,7 @@ const styles = StyleSheet.create({
 	rightImageImage: {
 		width: 100,
 		height: 100,
-		borderRadius: 0,
+		borderRadius: 5,
 	},
 
 
