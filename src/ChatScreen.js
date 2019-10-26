@@ -273,7 +273,8 @@ export default class ChatScreen extends React.Component {
 			"message": message,
 			"userID": this.currentUser.uid,
 			"type": type,
-			"media": media
+			"media": media,
+			"time": new Date
 		});
 		this.state.message = ""
 
@@ -502,7 +503,7 @@ const styles = StyleSheet.create({
 		paddingStart: 30,
 		// borderBottomColor: '#FFFFFF',
 		flex: 1,
-		fontFamily: "IntroCondLightFree"
+		// fontFamily: "IntroCondLightFree"
 	},
 	buttonContainer: {
 		height: 45,
