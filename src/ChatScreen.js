@@ -33,22 +33,28 @@ class Constant {
 export default class ChatScreen extends React.Component {
 
 	// MESSAGE_TYPE_TXT = "txt"
+	observer;
 	chatRef;
+	threadDocRef;
 	currentUser = firebase.auth().currentUser;
+	db = firebase.firestore();
 	constructor(props) {
 		super(props);
-		const instance = firebase.initializeApp({
-			persistence: true
-		});
+
 		this.state = { list: [], message: "", userID: 'w2JKh5BwWIcJ9SJuw7smR8KCaJ12' }
 
 		this.renderItem = this._renderItem.bind(this);
 
 		const { navigation } = this.props;
 		const userID = navigation.getParam('userID', 'w2JKh5BwWIcJ9SJuw7smR8KCaJ12');
+		const docId = navigation.getParam('docId', "");
 		this.state.userID = userID
 		// Alert.alert("Alert", this.state.userID);
-		this.chatRef = firebase.database().ref("chat/" + this.fetchLower(userID, this.currentUser.uid));
+		// this.chatRef = firebase.database().ref("chat/" + this.fetchLower(userID, this.currentUser.uid));
+
+
+		this.chatRef = this.db.collection('threads/' + docId + "/messages");
+		this.threadDocRef = this.db.collection('threads').doc(docId);
 	}
 
 	fetchLower(str1, str2) {
@@ -59,22 +65,73 @@ export default class ChatScreen extends React.Component {
 		}
 	}
 	componentDidMount() {
-		this.chatRef.on('child_added', (snapshot) => {
-			var item = snapshot.val();
+		// this.chatRef.on('child_added', (snapshot) => {
+		// 	var item = snapshot.val();
 
-			let oldList = this.state.list;
-			let obj = {
-				message: item.message,
-				media: item.media,
-				type: item.type,
-				sent: (item.userID == this.currentUser.uid)
-			}
+		// 	let oldList = this.state.list;
+		// 	let obj = {
+		// 		message: item.message,
+		// 		media: item.media,
+		// 		type: item.type,
+		// 		sent: (item.userID == this.currentUser.uid)
+		// 	}
 
-			console.log(obj)
-			oldList.push(obj);
-			this.setState({ list: oldList });
+		// 	console.log(obj)
+		// 	oldList.push(obj);
+		// 	this.setState({ list: oldList });
 
+		// });
+
+
+		this.observer = this.chatRef.orderBy('time').onSnapshot(docSnapshot => {
+			console.log(`Received doc snapshot: `, docSnapshot.docChanges);
+			// if (docSnapshot != undefined && docSnapshot.docChanges != undefined) {
+			docSnapshot.docChanges.forEach(change => {
+
+				console.log('Doc: ', change);
+				if (change.type === 'added') {
+					console.log('New city: ', change.doc.data());
+					let item = change.doc.data();
+					let oldList = this.state.list;
+					let obj = {
+						message: item.message,
+						media: item.media,
+						type: item.type,
+						sent: (item.userID == this.currentUser.uid)
+					}
+
+					console.log(obj)
+					oldList.push(obj);
+					this.setState({ list: oldList });
+				}
+				if (change.type === 'modified') {
+					console.log('Modified city: ', change.doc.data());
+				}
+				if (change.type === 'removed') {
+					console.log('Removed city: ', change.doc.data());
+				}
+			});
+			// }
+
+			// docSnapshot.docChanges().forEach(change => {
+			// 	if (change.type === 'added') {
+			// 		console.log('New city: ', change.doc.data());
+			// 	}
+			// 	if (change.type === 'modified') {
+			// 		console.log('Modified city: ', change.doc.data());
+			// 	}
+			// 	if (change.type === 'removed') {
+			// 		console.log('Removed city: ', change.doc.data());
+			// 	}
+			// });
+
+			// ...
+		}, err => {
+			console.log(`Encountered error: ${err}`);
 		});
+	}
+	componentWillUnmount() {
+		this.observer();
 	}
 	pickGallery(type) {
 
@@ -269,18 +326,30 @@ export default class ChatScreen extends React.Component {
 
 	sendMessage(message, type, media = "") {
 
-		this.chatRef.push({
+		this.chatRef.add({
 			"message": message,
 			"userID": this.currentUser.uid,
 			"type": type,
 			"media": media,
 			"time": new Date
 		});
-		this.state.message = ""
+		this.threadDocRef.update({
+			lastMessage: message,
+			lastMessageTime: new Date
+		});
+
+		// this.chatRef.push({
+		// 	"message": message,
+		// 	"userID": this.currentUser.uid,
+		// 	"type": type,
+		// 	"media": media,
+		// 	"time": new Date
+		// });
+		this.setState({ message: "" });
 
 	}
 	openChatScreen = (object) => {
-		console.log(object)
+		// console.log(object)
 	}
 	goBack = () => {
 		this.props.navigation.goBack();
@@ -288,7 +357,7 @@ export default class ChatScreen extends React.Component {
 
 	_renderItem = ({ item }) => {
 
-		console.log(item)
+		// console.log(item)
 		if (item.type == Constant.MESSAGE_TYPE_IMAGE) {
 			if (item.sent === false) {
 				return (

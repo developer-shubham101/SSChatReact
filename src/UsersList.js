@@ -18,37 +18,136 @@ import CustomImage from './cusomComponents/CustomImage'
 export default class UsersList extends React.Component {
 	currentUser = firebase.auth().currentUser;
 
+	db = firebase.firestore();
+
 	constructor(props) {
 		super(props);
 		this.state = { list: [], images: {} }
 	}
 	componentDidMount() {
-		const instance = firebase.initializeApp({
-			persistence: true
+		// Call our async function in a try block to catch connection errors.
+		try {
+			this.loadUsers();
+		}
+		catch (err) {
+			console.log('Error getting documents', err)
+		}
+	}
+
+	/* async loadUsersWithAsync() {
+		var tmpUserList = [];
+		var tmpUserIdList = [];
+
+		let threadsCollection = this.db.collection("threads");
+		let userKey = await threadsCollection.where("users", "array-contains", this.currentUser.uid).get();
+		userKey.forEach((doc) => {
+			// doc.data() is never undefined for query doc snapshots
+			console.log(doc.id, " => ", doc.data());
+			var item = doc.data();
+			let otherUserId = item.users.filter((element) => {
+				return element != this.currentUser.uid
+			});
+			tmpUserIdList.push({ otherUserId: otherUserId[0], docId: doc.id, threadData: doc.data() });
 		});
 
-		var usersRef = instance.database().ref("users");
-		console.log(usersRef)
-		usersRef.on('value', (snapshot) => {
-			console.log(snapshot)
-			snapshot.forEach((snap) => {
+		console.log("tmpUserIdList", tmpUserIdList);
 
-				console.log("snaps", snap);
-				// console.log(snap);
-				if (snap.key != this.currentUser.uid) {
-					var item = snap.val();
-					let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png';
-					let name = item.name ? item.name : item.email;
+		var queries = this.db.collection("users");
+
+
+		for (elementX of tmpUserIdList) {
+			console.log("key => ", elementX);
+			let key = elementX.otherUserId;
+
+			let doc = await queries.doc(key).get();
+			console.log(doc);
+			console.log("item.threadData", elementX.threadData);
+
+			if (doc.id != this.currentUser.uid) {
+				var item = doc.data();
+				let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png';
+				let name = item.name ? item.name : item.email;
+
+				var listOfUsers = this.state.list;
+
+				listOfUsers.push({
+					docId: elementX.docId,
+					email: item.email,
+					userID: item.userID,
+					image: image,
+					name: name,
+					threadData: elementX.threadData
+				});
+				this.setState(listOfUsers);
+			}
+		} 
+
+	} */
+
+	loadUsers() {
+		var queries = this.db.collection("users");
+		let threadsCollection = this.db.collection("threads");
+		threadsCollection.where("users", "array-contains", this.currentUser.uid).onSnapshot(async (docSnapshot) => {
+			console.log(`Received doc snapshot: `, docSnapshot.docChanges);
+
+			for (change of docSnapshot.docChanges) {
+				let changeDoc = change.doc;
+				console.log("change", change);
+				if (change.type === 'added') {
+
+					console.log(changeDoc.id, " => ", changeDoc.data());
+					var item = changeDoc.data();
+					let otherUserId = item.users.filter((element) => {
+						return element != this.currentUser.uid
+					});
+
+					elementX = { otherUserId: otherUserId[0], docId: changeDoc.id, threadData: changeDoc.data() };
+
+					console.log("key => ", elementX);
+					let key = elementX.otherUserId;
+
+					let doc = await queries.doc(key).get();
+					console.log("docSnapshot => ", doc);
+					console.log(doc);
+					console.log("item.threadData", elementX.threadData);
+
+					if (doc.id != this.currentUser.uid) {
+						var item = doc.data();
+						let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png';
+						let name = item.name ? item.name : item.email;
+
+						var listOfUsers = this.state.list;
+
+						listOfUsers.push({
+							docId: elementX.docId,
+							email: item.email,
+							userID: item.userID,
+							image: image,
+							name: name,
+							threadData: elementX.threadData
+						});
+						this.setState(listOfUsers);
+					}
+				}
+				if (change.type === 'modified') {
+					console.log('Modified city: ', change.doc.data());
 
 					var listOfUsers = this.state.list;
 
-					listOfUsers.push({ email: item.email, userID: item.userID, image: image, name: name });
+					for (i = 0; i < listOfUsers.length; i++) {
+						if (listOfUsers[i].docId == changeDoc.id) {
+							listOfUsers[i].threadData = changeDoc.data();
+						}
+					}
 					this.setState(listOfUsers);
 
-				}
-			});
-		});
 
+				}
+				if (change.type === 'removed') {
+					console.log('Removed city: ', change.doc.data());
+				}
+			}
+		});
 	}
 	onClickListener = (viewId) => {
 		if (viewId == "logout") {
@@ -59,17 +158,35 @@ export default class UsersList extends React.Component {
 
 	}
 	openChatScreen = (object) => {
-		console.log(object)
+		console.log(object);
+
+
+		// threadsCollection.add({
+		// 	users: [object.userID, this.currentUser.uid],
+		// 	lastMessage: "",
+		// 	lastMessageTime: new Date(),
+		// }).then(function (docRef) {
+		// 	console.log("Document written with ID: ", docRef.id);
+		// }).catch(function (error) {
+		// 	console.error("Error adding document: ", error);
+		// });
+
 		this.props.navigation.navigate("Chat", {
 			email: object.email,
-			userID: object.userID
+			userID: object.userID,
+			docId: object.docId
 
-		})
+		});
 	}
 	goBack = () => {
 		this.props.navigation.goBack();
 	}
-
+	openAllUserList() {
+		// console.log("open all user list");
+		this.props.navigation.navigate("AllUsersList", {
+			userList: this.state.list
+		});
+	}
 	renderItem = ({ item }) => {
 		return (
 
@@ -83,10 +200,10 @@ export default class UsersList extends React.Component {
 					<View style={styles.rowContentWrapper}>
 						<View style={styles.nameContainer}>
 							<Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">{item.name}</Text>
-							<Text style={styles.mblTxt}>Mobile</Text>
+							<Text style={styles.mblTxt}>Online</Text>
 						</View>
 						<View style={styles.msgContainer}>
-							<Text style={styles.msgTxt}>Online{/* item.status */}</Text>
+							<Text style={styles.msgTxt}> {item.threadData.lastMessage}</Text>
 						</View>
 					</View>
 				</View>
@@ -98,7 +215,11 @@ export default class UsersList extends React.Component {
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
 				<View style={styles.toolbarWrapper}>
-					<Text style={styles.toolbarTitle}>USERS</Text>
+					<TouchableOpacity
+						activeOpacity={0.7}
+						onPress={() => { this.openAllUserList() }}>
+						<Text style={styles.toolbarTitle}>USERS (+)</Text>
+					</TouchableOpacity>
 				</View>
 				<View style={styles.container}>
 					<FlatList

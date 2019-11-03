@@ -21,12 +21,15 @@ export default class ProfileScreen extends React.Component {
         super(props);
         this.state = { avatarSource: "https://bootdey.com/img/Content/avatar/avatar6.png", email: '', name: '', bio: "" }
 
-        firebase.database().ref("users/" + this.currentUser.uid).once("value", (snap) => {
-            console.log(snap)
-            this.setState({ name: snap.val().name, email: snap.val().email, bio: snap.val().bio })
-        });
+
     }
     componentDidMount() {
+        firebase.firestore().collection("users").doc(this.currentUser.uid).get().then((snap) => {
+            console.log("users", snap);
+            let user = snap.data();
+            this.setState({ name: user.name, email: user.email, bio: user.bio })
+        });
+
         // Get a non-default Storage bucket
         // var storage = firebase.app().storage("gs://my-custom-bucket");
 
@@ -68,7 +71,7 @@ export default class ProfileScreen extends React.Component {
         // More info on all the options is below in the API Reference... just some common use cases shown here
         const options = {
             title: 'Select Avatar',
-             
+
             storageOptions: {
                 skipBackup: true,
                 path: 'images',
@@ -101,7 +104,7 @@ export default class ProfileScreen extends React.Component {
                 var metadata = {
                     contentType: 'image/jpeg',
                 };
-                var uploadTask = mountainsRef.put(response.uri, metadata);
+                var uploadTask = mountainsRef.put(response.path, metadata);
 
 
                 // Listen for state changes, errors, and completion of the upload.
@@ -135,16 +138,17 @@ export default class ProfileScreen extends React.Component {
                                 console.log(' Unknown error occurred, inspect error.serverResponse')
                                 break;
                         }
-                    }, function () {
+                    }, () => {
                         // Upload completed successfully, now we can get the download URL
-                        uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-                            console.log('File available at', downloadURL);
-                        });
+                        // uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                        //     console.log('File available at', downloadURL);
+                        // });
                     });
 
 
-                var usersRef = firebase.database().ref("users/" + this.currentUser.uid + "/dp/");
-                usersRef.set(path)
+                // var usersRef = firebase.firestore().ref("users/" + this.currentUser.uid + "/dp/");
+                firebase.firestore().collection("users").doc(this.currentUser.uid).update({ dp: path });
+                // usersRef.set(path)
                 // this.setState({
                 //     avatarSource: source,
                 // });

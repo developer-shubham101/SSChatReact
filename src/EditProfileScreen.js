@@ -27,26 +27,35 @@ export default class EditProfileScreen extends React.Component {
             bio: ''
         }
 
-        this.userRef = firebase.database().ref("users/" + this.currentUser.uid);
-        firebase
-            .database()
-            .ref("users/" + this.currentUser.uid)
-            .once("value", snap => {
-                console.log(snap);
-                this.setState({
-                    name: snap.val().name,
-                    email: snap.val().email,
-                    bio: snap.val().bio
-                });
-            });
+        // this.userRef = firebase.database().ref("users/" + this.currentUser.uid);
+        this.userRef = firebase.firestore().collection("users").doc(this.currentUser.uid);
+        // firebase
+        //     .database()
+        //     .ref("users/" + this.currentUser.uid)
+        //     .once("value", snap => {
+        //         console.log(snap);
+        //         this.setState({
+        //             name: snap.val().name,
+        //             email: snap.val().email,
+        //             bio: snap.val().bio
+        //         });
+        //     });
+        firebase.firestore().collection("users").doc(this.currentUser.uid).get().then((snap) => {
+            console.log("users", snap);
+            let user = snap.data();
+            this.setState({ name: user.name, email: user.email, bio: user.bio })
+        });
+
     }
 
     componentDidMount() { }
 
     onClickListener = viewId => {
         if (viewId == "update") {
-            this.userRef.child("name").set(this.state.name);
-            this.userRef.child("bio").set(this.state.bio);
+            // this.userRef.child("name").set(this.state.name);
+            // this.userRef.child("bio").set(this.state.bio);
+            this.userRef.update({ name: this.state.name, bio: this.state.bio });
+
         } else if (viewId == "back") {
             this.props.navigation.goBack();
         } else {
@@ -125,7 +134,7 @@ const styles = StyleSheet.create({
         backgroundColor: appColors.bgColor
         // backgroundColor: "#ddd"
     },
-    backIconWrapper:{
+    backIconWrapper: {
         height: 25,
         width: 25,
         marginStart: 20,
@@ -186,7 +195,7 @@ const styles = StyleSheet.create({
     loginButton: {
         marginTop: 60
     },
-    regIcon:{
+    regIcon: {
         width: 65,
         marginStart: 30,
         // backgroundColor: "#000",

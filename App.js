@@ -15,6 +15,9 @@ import ProfileScreen from './src/ProfileScreen'
 import Examples from './src/Examples'
 import EditProfileScreen from './src/EditProfileScreen';
 import AuthPage from "./src/AuthPage";
+import AllUsersList from "./src/AllUsersList";
+
+
 
 import {
     createStackNavigator,
@@ -78,7 +81,9 @@ const TabNavigator = createBottomTabNavigator({
         }
     });
 const SignedInNavigator = createStackNavigator({
-
+    AllUsersList: {
+        screen: AllUsersList
+    },
     EditProfileScreen: {
         screen: EditProfileScreen
     },

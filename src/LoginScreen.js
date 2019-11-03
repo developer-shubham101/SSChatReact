@@ -45,15 +45,24 @@ export default class LoginScreen extends React.Component {
     }
     onUserChanged = (user) => {
         if (user) {
-            console.log("Login ")
-            console.log(user.toJSON())
-            var usersRef = firebase.database().ref("users/" + user.uid);
-            var emailRef = usersRef.child("email");
-            var idRef = usersRef.child("userID");
-            var onlineRef = usersRef.child("online");
-            emailRef.set(user.email);
-            idRef.set(user.uid);
-            onlineRef.set(true)
+            console.log("Login ");
+            console.log(user.toJSON());
+            let userRef = firebase.firestore().collection("users").doc(user.uid);
+
+
+            // var usersRef = firebase.database().ref("users/" + user.uid);
+            // var emailRef = usersRef.child("email");
+            // var idRef = usersRef.child("userID");
+            // var onlineRef = usersRef.child("online");
+            // emailRef.set(user.email);
+            // idRef.set(user.uid);
+            // onlineRef.set(true)
+
+            userRef.update({
+                email: user.email,
+                userID: user.uid,
+                online: true
+            });
             // usersRef.set({
             //     userID: user.uid,
             //     email: user.email,
@@ -281,7 +290,7 @@ const styles = StyleSheet.create({
         resizeMode: "center"
     },
 
-    regIcon:{
+    regIcon: {
         width: 65,
         marginStart: 30,
         // backgroundColor: "#000",

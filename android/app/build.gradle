@@ -133,6 +133,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true  // needed for firestore:
     }
     splits {
         abi {
@@ -205,6 +206,7 @@ dependencies {
     implementation "com.google.firebase:firebase-messaging:19.0.1"
     implementation "com.google.firebase:firebase-database:18.0.0"
     implementation "com.google.firebase:firebase-storage:18.1.0"
+    implementation "com.google.firebase:firebase-firestore:18.1.0"
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermesvm/android/"
