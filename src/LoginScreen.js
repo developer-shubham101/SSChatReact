@@ -58,7 +58,7 @@ export default class LoginScreen extends React.Component {
             // idRef.set(user.uid);
             // onlineRef.set(true)
 
-            userRef.update({
+            userRef.set({
                 email: user.email,
                 userID: user.uid,
                 online: true
