@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
 	toolbarTitle: {
 
 		color: "#d9983d",
-		fontFamily: "IntroCondLightFree",
+		fontFamily: "Lato-Thin",
 		marginTop: 30,
 		marginStart: 20,
 		fontSize: 30
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
 
 	},
 	nameTxt: {
-
+		fontFamily: "Lato-Thin",
 		flex: 1,
 		color: '#222',
 		fontSize: 14,
@@ -315,6 +315,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	msgTxt: {
+		fontFamily: "Lato-Thin",
 		fontWeight: '400',
 		color: '#008B8B',
 		fontSize: 12,

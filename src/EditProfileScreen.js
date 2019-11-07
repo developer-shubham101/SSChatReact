@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     toolbarTitle: {
 
         color: "#d9983d",
-        fontFamily: "IntroCondLightFree",
+        fontFamily: "Lato-Thin",
         marginTop: 10,
         marginStart: 30,
         fontSize: 30
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
         paddingStart: 30,
         // borderBottomColor: '#FFFFFF',
         flex: 1,
-        fontFamily: "IntroCondLightFree"
+        fontFamily: "Lato-Thin"
     },
 
     buttonContainer: {
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
     },
     loginText: {
         color: "#ededed",
-        fontFamily: "IntroCondLightFree",
+        fontFamily: "Lato-Thin",
         fontSize: 18
     }
 });

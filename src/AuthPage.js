@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 
     loading: {
         color: "#ededed",
-        fontFamily: "IntroCondLightFree",
+        fontFamily: "Lato-Thin",
         fontSize: 33
     },
      

@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
         paddingStart: 30,
         // borderBottomColor: '#FFFFFF',
         flex: 1,
-        fontFamily: "IntroCondLightFree"
+        fontFamily: "Lato-Thin"
     },
     inputIcon: {
         width: 30,
@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
 
     buttonText: {
         color: "#ededed",
-        fontFamily: "IntroCondLightFree",
+        fontFamily: "Lato-Thin",
         fontSize: 18
     },
     loginIcon: {

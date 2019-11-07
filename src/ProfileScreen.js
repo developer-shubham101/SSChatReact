@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 22,
         color: "#ededed",
-        fontFamily: "IntroCondLightFree",
+        fontFamily: "Lato-Thin",
     },
     body: {
         marginTop: 40,
@@ -295,13 +295,13 @@ const styles = StyleSheet.create({
     info: {
         fontSize: 16,
         color: "#ededed",
-        fontFamily: "IntroCondLightFree",
+        fontFamily: "Lato-Thin",
         marginTop: 10
     },
     description: {
         fontSize: 12,
         color: "#696969",
-        fontFamily: "IntroCondLightFree",
+        fontFamily: "Lato-Thin",
         marginTop: 10,
 
     },
@@ -345,7 +345,7 @@ const styles = StyleSheet.create({
         // fontWeight: '100',
 
         color: "#ededed",
-        fontFamily: "IntroCondLightFree",
+        fontFamily: "Lato-Thin",
         fontSize: 18
     },
     buttonIcon: {

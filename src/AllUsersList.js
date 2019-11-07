@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
 	toolbarTitle: {
 
 		color: "#d9983d",
-		fontFamily: "IntroCondLightFree",
+		fontFamily: "Lato-Thin",
 		marginTop: 30,
 		marginStart: 20,
 		fontSize: 30

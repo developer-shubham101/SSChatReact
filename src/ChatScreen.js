@@ -512,7 +512,7 @@ const styles = StyleSheet.create({
 	},
 	toolbarTitle: {
 		color: "#d9983d",
-		fontFamily: "IntroCondLightFree",
+		fontFamily: "Lato-Thin",
 		marginTop: 10,
 		marginStart: 30,
 		fontSize: 30
@@ -572,7 +572,7 @@ const styles = StyleSheet.create({
 		paddingStart: 30,
 		// borderBottomColor: '#FFFFFF',
 		flex: 1,
-		// fontFamily: "IntroCondLightFree"
+		// fontFamily: "Lato-Thin"
 	},
 	buttonContainer: {
 		height: 45,
@@ -735,9 +735,10 @@ const styles = StyleSheet.create({
 		},
 	},
 	msgTxt: {
+		fontFamily: "Lato-Thin",
 		fontSize: 15,
 		color: '#fff',
-		fontWeight: '600',
+		// fontWeight: '600',
 	},
 	rightMsg: {
 		flexDirection: 'row',
@@ -758,9 +759,10 @@ const styles = StyleSheet.create({
 		},
 	},
 	rightTxt: {
+		fontFamily: "Lato-Thin",
 		fontSize: 15,
 		color: '#fff',
-		fontWeight: '600',
+		// fontWeight: '600',
 	},
 
 });
