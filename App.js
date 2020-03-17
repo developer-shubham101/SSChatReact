@@ -16,6 +16,7 @@ import Examples from './src/Examples'
 import EditProfileScreen from './src/EditProfileScreen';
 import AuthPage from "./src/AuthPage";
 import AllUsersList from "./src/AllUsersList";
+import AllUsersListForGroup from "./src/AllUsersListForGroup";
 
 
 
@@ -81,6 +82,9 @@ const TabNavigator = createBottomTabNavigator({
         }
     });
 const SignedInNavigator = createStackNavigator({
+	AllUsersListForGroup: {
+		screen: AllUsersListForGroup
+	},
     AllUsersList: {
         screen: AllUsersList
     },

@@ -97,37 +97,67 @@ export default class UsersList extends React.Component {
 
 					console.log(changeDoc.id, " => ", changeDoc.data());
 					var item = changeDoc.data();
-					let otherUserId = item.users.filter((element) => {
-						return element != this.currentUser.uid
-					});
 
-					elementX = { otherUserId: otherUserId[0], docId: changeDoc.id, threadData: changeDoc.data() };
+					if (item.isGroup) {
 
-					console.log("key => ", elementX);
-					let key = elementX.otherUserId;
+						let otherUserId = item.users.filter((element) => {
+							return element != this.currentUser.uid
+						});
 
-					let doc = await queries.doc(key).get();
-					console.log("docSnapshot => ", doc);
-					console.log(doc);
-					console.log("item.threadData", elementX.threadData);
+						elementX = { otherUserId: otherUserId[0], docId: changeDoc.id, threadData: changeDoc.data() };
 
-					if (doc.id != this.currentUser.uid) {
-						var item = doc.data();
-						let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png';
-						let name = item.name ? item.name : item.email;
+
+						let image = 'https://bootdey.com/img/Content/avatar/avatar6.png';
+						let name = item.groupName
 
 						var listOfUsers = this.state.list;
 
 						listOfUsers.push({
+							isGroup: true,
 							docId: elementX.docId,
-							email: item.email,
+							email: "",
 							userID: item.userID,
 							image: image,
 							name: name,
 							threadData: elementX.threadData
 						});
 						this.setState(listOfUsers);
+					} else {
+
+						let otherUserId = item.users.filter((element) => {
+							return element != this.currentUser.uid
+						});
+
+						elementX = { otherUserId: otherUserId[0], docId: changeDoc.id, threadData: changeDoc.data() };
+
+						console.log("key => ", elementX);
+						let key = elementX.otherUserId;
+
+						let doc = await queries.doc(key).get();
+						console.log("docSnapshot => ", doc);
+						console.log(doc);
+						console.log("item.threadData", elementX.threadData);
+
+						if (doc.id != this.currentUser.uid) {
+							var item = doc.data();
+							let image = item.dp ? item.dp : 'https://bootdey.com/img/Content/avatar/avatar6.png';
+							let name = item.name ? item.name : item.email;
+
+							var listOfUsers = this.state.list;
+
+							listOfUsers.push({
+								isGroup: false,
+								docId: elementX.docId,
+								email: item.email,
+								userID: item.userID,
+								image: image,
+								name: name,
+								threadData: elementX.threadData
+							});
+							this.setState(listOfUsers);
+						}
 					}
+
 				}
 				if (change.type === 'modified') {
 					console.log('Modified city: ', change.doc.data());
@@ -171,12 +201,21 @@ export default class UsersList extends React.Component {
 		// 	console.error("Error adding document: ", error);
 		// });
 
-		this.props.navigation.navigate("Chat", {
-			email: object.email,
-			userID: object.userID,
-			docId: object.docId
-
-		});
+		if (object.isGroup) {
+			this.props.navigation.navigate("Chat", {
+				email: object.email,
+				userID: object.userID,
+				docId: object.docId,
+				isGroup: object.isGroup
+			});
+		} else {
+			this.props.navigation.navigate("Chat", {
+				email: object.email,
+				userID: object.userID,
+				docId: object.docId,
+				isGroup: object.isGroup
+			});
+		}
 	}
 	goBack = () => {
 		this.props.navigation.goBack();
@@ -184,6 +223,13 @@ export default class UsersList extends React.Component {
 	openAllUserList() {
 		// console.log("open all user list");
 		this.props.navigation.navigate("AllUsersList", {
+			userList: this.state.list
+		});
+	}
+
+	createGroup() {
+		// console.log("open all user list");
+		this.props.navigation.navigate("AllUsersListForGroup", {
 			userList: this.state.list
 		});
 	}
@@ -220,6 +266,12 @@ export default class UsersList extends React.Component {
 						onPress={() => { this.openAllUserList() }}>
 						<Text style={styles.toolbarTitle}>USERS (+)</Text>
 					</TouchableOpacity>
+
+					<TouchableOpacity
+						activeOpacity={0.7}
+						onPress={() => { this.createGroup() }}>
+						<Text style={styles.toolbarTitle}>CREATE GROUP</Text>
+					</TouchableOpacity>
 				</View>
 				<View style={styles.container}>
 					<FlatList
@@ -236,7 +288,8 @@ export default class UsersList extends React.Component {
 const styles = StyleSheet.create({
 	toolbarWrapper: {
 		height: 60,
-		backgroundColor: appColors.bgColor
+		backgroundColor: appColors.bgColor,
+		flexDirection: 'row'
 	},
 
 	toolbarTitle: {

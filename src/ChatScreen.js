@@ -46,11 +46,8 @@ export default class ChatScreen extends React.Component {
 		this.renderItem = this._renderItem.bind(this);
 
 		const { navigation } = this.props;
-		const userID = navigation.getParam('userID', 'w2JKh5BwWIcJ9SJuw7smR8KCaJ12');
 		const docId = navigation.getParam('docId', "");
-		this.state.userID = userID
-		// Alert.alert("Alert", this.state.userID);
-		// this.chatRef = firebase.database().ref("chat/" + this.fetchLower(userID, this.currentUser.uid));
+		this.state.userID = navigation.getParam('userID', 'w2JKh5BwWIcJ9SJuw7smR8KCaJ12')
 
 
 		this.chatRef = this.db.collection('threads/' + docId + "/messages");
@@ -65,24 +62,6 @@ export default class ChatScreen extends React.Component {
 		}
 	}
 	componentDidMount() {
-		// this.chatRef.on('child_added', (snapshot) => {
-		// 	var item = snapshot.val();
-
-		// 	let oldList = this.state.list;
-		// 	let obj = {
-		// 		message: item.message,
-		// 		media: item.media,
-		// 		type: item.type,
-		// 		sent: (item.userID == this.currentUser.uid)
-		// 	}
-
-		// 	console.log(obj)
-		// 	oldList.push(obj);
-		// 	this.setState({ list: oldList });
-
-		// });
-
-
 		this.observer = this.chatRef.orderBy('time').onSnapshot(docSnapshot => {
 			console.log(`Received doc snapshot: `, docSnapshot.docChanges);
 			// if (docSnapshot != undefined && docSnapshot.docChanges != undefined) {
@@ -111,21 +90,7 @@ export default class ChatScreen extends React.Component {
 					console.log('Removed city: ', change.doc.data());
 				}
 			});
-			// }
 
-			// docSnapshot.docChanges().forEach(change => {
-			// 	if (change.type === 'added') {
-			// 		console.log('New city: ', change.doc.data());
-			// 	}
-			// 	if (change.type === 'modified') {
-			// 		console.log('Modified city: ', change.doc.data());
-			// 	}
-			// 	if (change.type === 'removed') {
-			// 		console.log('Removed city: ', change.doc.data());
-			// 	}
-			// });
-
-			// ...
 		}, err => {
 			console.log(`Encountered error: ${err}`);
 		});
@@ -219,13 +184,6 @@ export default class ChatScreen extends React.Component {
 						this.sendMessage("", Constant.MESSAGE_TYPE_IMAGE, path)
 
 					});
-
-
-				// var usersRef = firebase.database().ref("users/" + this.currentUser.uid + "/dp/");
-				// usersRef.set(path)
-				// this.setState({
-				//     avatarSource: source,
-				// });
 			}
 		});
 	}
@@ -338,13 +296,6 @@ export default class ChatScreen extends React.Component {
 			lastMessageTime: new Date
 		});
 
-		// this.chatRef.push({
-		// 	"message": message,
-		// 	"userID": this.currentUser.uid,
-		// 	"type": type,
-		// 	"media": media,
-		// 	"time": new Date
-		// });
 		this.setState({ message: "" });
 
 	}
@@ -357,7 +308,7 @@ export default class ChatScreen extends React.Component {
 
 	_renderItem = ({ item }) => {
 
-		// console.log(item)
+		console.log(item)
 		if (item.type == Constant.MESSAGE_TYPE_IMAGE) {
 			if (item.sent === false) {
 				return (
@@ -375,7 +326,6 @@ export default class ChatScreen extends React.Component {
 							<CustomImage src={item.media} iconStyle={styles.rightImageImage} />
 							{/* <Text style={styles.rightTxt}>{item.message}</Text> */}
 						</View>
-
 					</View>
 				);
 			}
@@ -404,7 +354,7 @@ export default class ChatScreen extends React.Component {
 			if (item.sent === false) {
 				return (
 					<View style={styles.eachMsg}>
-
+						<Image source={require("./../assets/img/ic_folder.png")} style={styles.leftFileImage} />
 						<View style={styles.msgBlock}>
 							<Text style={styles.msgTxt}>{item.message}</Text>
 						</View>
@@ -416,6 +366,7 @@ export default class ChatScreen extends React.Component {
 						<View style={styles.rightBlock} >
 							<Text style={styles.rightTxt}>{item.message}</Text>
 						</View>
+						<Image source={require("./../assets/img/ic_folder.png")} style={styles.rightProfileImage} />
 					</View>
 				);
 			}
@@ -715,6 +666,13 @@ const styles = StyleSheet.create({
 
 	},
 
+	rightProfileImage: {
+		width: 20,
+		height: 20,
+
+		backgroundColor: '#ffff00',
+	},
+
 
 
 	eachMsg: {
@@ -723,6 +681,7 @@ const styles = StyleSheet.create({
 		margin: 5,
 	},
 	msgBlock: {
+
 		width: '80%',
 		borderRadius: 5,
 		backgroundColor: '#1e1f21',
@@ -747,6 +706,7 @@ const styles = StyleSheet.create({
 		alignSelf: 'flex-end',
 	},
 	rightBlock: {
+
 		width: '80%',
 		borderRadius: 3,
 		backgroundColor: '#343c3e',
