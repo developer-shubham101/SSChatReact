@@ -8,39 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* SSChatReactTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SSChatReactTests.m */; };
+		0C17AA685E354F9ABE0E2E27 /* IntroCondLightFree.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A1334B956DD45AC9FA38D5C /* IntroCondLightFree.ttf */; };
+		12525A87629540DFBD7E8BDE /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 845D2E81B9A3446C84B55E90 /* Lato-LightItalic.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		13F385C8A0C21F505BE5643A /* libPods-SSChatReact-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 272038A3F47561629A6D2907 /* libPods-SSChatReact-tvOSTests.a */; };
-		171AC631F0C24793887C39E3 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69489493A4F04C359F604855 /* Lato-Thin.ttf */; };
-		171AD43505DC44B98FD2A9CC /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C208C4FB5BD4E12826F942F /* Lato-HeavyItalic.ttf */; };
-		1DBAF454962646C78EA65CD0 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E1188D3E5A472E96D34EEE /* Lato-MediumItalic.ttf */; };
-		24B85EA215BB40D78A59D766 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D5DFF18EC6844B89C71510F /* Lato-SemiboldItalic.ttf */; };
-		2ACA5472285846F09D3734E2 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCBDB88D087840C18F7D8E29 /* Lato-Italic.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* SSChatReactTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SSChatReactTests.m */; };
-		33DBA3552E1A4A768062F8F8 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91597F98C7AA4341BF0CBE43 /* Lato-Light.ttf */; };
-		37571419124D4AA2A0E4182C /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C3953AE30FB467CBB2FB383 /* Lato-HairlineItalic.ttf */; };
-		42243C6100F440C781CBAC8F /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25F666EF68814632AC4E647D /* Lato-ThinItalic.ttf */; };
-		432A33B900BE4F41AD06CD0A /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C1A0657C56A4540A359E45C /* Lato-Semibold.ttf */; };
-		653F83EE874B4CC2B8EB2F50 /* IntroCondLightFree.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E09C208C35864D6FB16CC1D2 /* IntroCondLightFree.ttf */; };
-		6AD253B7A87E9636902FA183 /* libPods-SSChatReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0BA268080A80FBF60E992E /* libPods-SSChatReact.a */; };
-		7000D3A0B9FB396510345550 /* libPods-SSChatReact-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B59B0CEC975BE7DE6D94F99B /* libPods-SSChatReact-tvOS.a */; };
-		77CC593AF0474D94856366BE /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93B49D367E2E40FD8DC6C654 /* Lato-BoldItalic.ttf */; };
-		959DC60D70A44101BEBC7374 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF2014C1BB0F4911A510C7FB /* Lato-Medium.ttf */; };
-		9F9DCC962370273D004E555E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F9DCC952370273D004E555E /* GoogleService-Info.plist */; };
-		AD056DEE042344BB88C24CAA /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B292B8D1CB994DB5A38A795A /* Lato-LightItalic.ttf */; };
-		B84E0F983E0A28DA7FDB0215 /* libPods-SSChatReactTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BF67B8C5859DA6900AB86B /* libPods-SSChatReactTests.a */; };
-		C6E9C379376F4DCD969CF650 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 616AF71329D1498195B48B6B /* Lato-Regular.ttf */; };
-		CDBF292656094A2481ED1302 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A09DF8A00CC449DBAD59DAAA /* Lato-BlackItalic.ttf */; };
-		CDE6DBA00D7E4A3BBEC49D21 /* IntroCondBlackFree.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8842C96C2A984DE9B6B12C16 /* IntroCondBlackFree.ttf */; };
-		D370E70B5CCE44A7A78B8C59 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 265A5A0406714AC6B427E63D /* Lato-Bold.ttf */; };
-		DB456AB159F443448B16E180 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17DBB861FD0747819F279719 /* Lato-Heavy.ttf */; };
-		DE279667A7C64823B2613BF5 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80ED7CDB448944158D194983 /* Lato-Black.ttf */; };
-		EC6EE19586CC4DC5A8BBB5E4 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A33B828184FD4E9CA1B98C91 /* Lato-Hairline.ttf */; };
+		36D16D49D9C8409FA34A2F5B /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D481E2DB9F4D4A2D9C1B8CAF /* Lato-BlackItalic.ttf */; };
+		45A1E23337EE4536BD03F19E /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C1B3CCDC10F465E9A085509 /* Lato-Italic.ttf */; };
+		52B6BD1711154676B3C51FCC /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71F7171E284A417ABA6D9375 /* Lato-ThinItalic.ttf */; };
+		59D27CF9465939E3005DE4F7 /* libPods-SSChatReact-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 288722DA6936C1D32A349D54 /* libPods-SSChatReact-tvOSTests.a */; };
+		699EB97BE699F00C0CCD5E30 /* libPods-SSChatReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 536A68914ABA1FB8553D0B3F /* libPods-SSChatReact.a */; };
+		6E989D183F684F96BBED00F6 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7935766D9B147EFB9ACF400 /* Lato-Light.ttf */; };
+		7214169A257E1FD700FEEE17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72141699257E1FD700FEEE17 /* GoogleService-Info.plist */; };
+		7488807538164434BD5F613D /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F7C983A9B7477FBAA08151 /* Lato-Black.ttf */; };
+		768BBBB95C5A4347BE0AFF73 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2204D5A430A49E0AD88BBE5 /* Lato-Bold.ttf */; };
+		7965C3E8C5BB4A79A18351A9 /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91FFD92DF9A74320A99E487E /* Lato-HeavyItalic.ttf */; };
+		8188C589A90B4150B923BE28 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D0CD8457D314099B855D724 /* Lato-Medium.ttf */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8C2B789FBEFE4629AF6DE6C4 /* IntroCondBlackFree.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A283EA127CB4C49BA4B9A90 /* IntroCondBlackFree.ttf */; };
+		9249E618FE8B478AA98B8FB8 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF783A11DC04760966AD207 /* Lato-SemiboldItalic.ttf */; };
+		9991C380F0AA6758AE167CEB /* libPods-SSChatReact-SSChatReactTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC86494A6A39EC978EB8D87 /* libPods-SSChatReact-SSChatReactTests.a */; };
+		AE3DFC8C9F2F489A8D91F34D /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DD77A81C15846FE87EC0429 /* Lato-Hairline.ttf */; };
+		B1E9ACD36CC147159D1E8F73 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E72F2D9E241D4977A5BC50BA /* Lato-HairlineItalic.ttf */; };
+		BB1506F8869249FABB2FEC16 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DDB5C7D1BFA4D54A1A9E86D /* Lato-MediumItalic.ttf */; };
+		BD7E2D4CF3E642C592E4A44D /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24B89BE6FE7542748A59550A /* Lato-BoldItalic.ttf */; };
+		BDE79E33944B4DD2A175BF97 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0865770DA748F59D17068B /* Lato-Heavy.ttf */; };
+		D6A32443F480B3AA7836E683 /* libPods-SSChatReact-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5270C0D63FEB4C2F10130709 /* libPods-SSChatReact-tvOS.a */; };
+		F219A3463B5149F688931588 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29A51FBE4AE8436584BB572B /* Lato-Thin.ttf */; };
+		FB6AE0D26CF444D78EF31F51 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04C53B3DF42041BC94C14246 /* Lato-Regular.ttf */; };
+		FE464721C9E24EF3A0A94457 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BDE3BEFB7B64CFAB2D755AA /* Lato-Semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,50 +65,50 @@
 		00E356EE1AD99517003FC87E /* SSChatReactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSChatReactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* SSChatReactTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSChatReactTests.m; sourceTree = "<group>"; };
+		04C53B3DF42041BC94C14246 /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		0BDE3BEFB7B64CFAB2D755AA /* Lato-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Semibold.ttf"; path = "../assets/fonts/Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		0FF783A11DC04760966AD207 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-SemiboldItalic.ttf"; path = "../assets/fonts/Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		10B445C481C70684C2C404CF /* Pods-SSChatReact-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-SSChatReact-tvOS/Pods-SSChatReact-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* SSChatReact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSChatReact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SSChatReact/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SSChatReact/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SSChatReact/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SSChatReact/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SSChatReact/main.m; sourceTree = "<group>"; };
-		17DBB861FD0747819F279719 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Heavy.ttf"; path = "../assets/fonts/Lato-Heavy.ttf"; sourceTree = "<group>"; };
-		1C1A0657C56A4540A359E45C /* Lato-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Semibold.ttf"; path = "../assets/fonts/Lato-Semibold.ttf"; sourceTree = "<group>"; };
-		1C3953AE30FB467CBB2FB383 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-HairlineItalic.ttf"; path = "../assets/fonts/Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
-		1F2809BC9070E706960C9B65 /* Pods-SSChatReact-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-SSChatReact-tvOSTests/Pods-SSChatReact-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		25F666EF68814632AC4E647D /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-ThinItalic.ttf"; path = "../assets/fonts/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
-		265A5A0406714AC6B427E63D /* Lato-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Bold.ttf"; path = "../assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
-		272038A3F47561629A6D2907 /* libPods-SSChatReact-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSChatReact-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19E5B1CA10CC08D5C2A71B53 /* Pods-SSChatReact-SSChatReactTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact-SSChatReactTests.debug.xcconfig"; path = "Target Support Files/Pods-SSChatReact-SSChatReactTests/Pods-SSChatReact-SSChatReactTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C1B3CCDC10F465E9A085509 /* Lato-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Italic.ttf"; path = "../assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; };
+		1DDB5C7D1BFA4D54A1A9E86D /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-MediumItalic.ttf"; path = "../assets/fonts/Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
+		24B89BE6FE7542748A59550A /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BoldItalic.ttf"; path = "../assets/fonts/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		288722DA6936C1D32A349D54 /* libPods-SSChatReact-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSChatReact-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29A51FBE4AE8436584BB572B /* Lato-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Thin.ttf"; path = "../assets/fonts/Lato-Thin.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* SSChatReact-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SSChatReact-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* SSChatReact-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSChatReact-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D5DFF18EC6844B89C71510F /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-SemiboldItalic.ttf"; path = "../assets/fonts/Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
-		43E7BCA1D515416FF0369E44 /* Pods-SSChatReact-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact-tvOS.release.xcconfig"; path = "Target Support Files/Pods-SSChatReact-tvOS/Pods-SSChatReact-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		60BEACAA5C37D0631261556A /* Pods-SSChatReact-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-SSChatReact-tvOSTests/Pods-SSChatReact-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		616AF71329D1498195B48B6B /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
-		61BF67B8C5859DA6900AB86B /* libPods-SSChatReactTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSChatReactTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69489493A4F04C359F604855 /* Lato-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Thin.ttf"; path = "../assets/fonts/Lato-Thin.ttf"; sourceTree = "<group>"; };
-		6C208C4FB5BD4E12826F942F /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-HeavyItalic.ttf"; path = "../assets/fonts/Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
-		6F549C9F361E53466CEAEA3E /* Pods-SSChatReact-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-SSChatReact-tvOS/Pods-SSChatReact-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		80E1188D3E5A472E96D34EEE /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-MediumItalic.ttf"; path = "../assets/fonts/Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
-		80ED7CDB448944158D194983 /* Lato-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Black.ttf"; path = "../assets/fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
-		8842C96C2A984DE9B6B12C16 /* IntroCondBlackFree.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = IntroCondBlackFree.ttf; path = ../assets/fonts/IntroCondBlackFree.ttf; sourceTree = "<group>"; };
-		91597F98C7AA4341BF0CBE43 /* Lato-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Light.ttf"; path = "../assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; };
-		93B49D367E2E40FD8DC6C654 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BoldItalic.ttf"; path = "../assets/fonts/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
-		9F9DCC952370273D004E555E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A09DF8A00CC449DBAD59DAAA /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BlackItalic.ttf"; path = "../assets/fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
-		A33B828184FD4E9CA1B98C91 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Hairline.ttf"; path = "../assets/fonts/Lato-Hairline.ttf"; sourceTree = "<group>"; };
-		AF2014C1BB0F4911A510C7FB /* Lato-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Medium.ttf"; path = "../assets/fonts/Lato-Medium.ttf"; sourceTree = "<group>"; };
-		B292B8D1CB994DB5A38A795A /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-LightItalic.ttf"; path = "../assets/fonts/Lato-LightItalic.ttf"; sourceTree = "<group>"; };
-		B59B0CEC975BE7DE6D94F99B /* libPods-SSChatReact-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSChatReact-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B60D7BE68699F6EEE1489914 /* Pods-SSChatReactTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReactTests.debug.xcconfig"; path = "Target Support Files/Pods-SSChatReactTests/Pods-SSChatReactTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CCBDB88D087840C18F7D8E29 /* Lato-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Italic.ttf"; path = "../assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; };
-		E09C208C35864D6FB16CC1D2 /* IntroCondLightFree.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = IntroCondLightFree.ttf; path = ../assets/fonts/IntroCondLightFree.ttf; sourceTree = "<group>"; };
-		E4EE57AC71AD05A00568998F /* Pods-SSChatReactTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReactTests.release.xcconfig"; path = "Target Support Files/Pods-SSChatReactTests/Pods-SSChatReactTests.release.xcconfig"; sourceTree = "<group>"; };
-		E6CC5917A46C29D18EB67173 /* Pods-SSChatReact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact.release.xcconfig"; path = "Target Support Files/Pods-SSChatReact/Pods-SSChatReact.release.xcconfig"; sourceTree = "<group>"; };
+		2D0CD8457D314099B855D724 /* Lato-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Medium.ttf"; path = "../assets/fonts/Lato-Medium.ttf"; sourceTree = "<group>"; };
+		2DD77A81C15846FE87EC0429 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Hairline.ttf"; path = "../assets/fonts/Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		2E0865770DA748F59D17068B /* Lato-Heavy.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Heavy.ttf"; path = "../assets/fonts/Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		3C603B5F31FDD46ACC306827 /* Pods-SSChatReact-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-SSChatReact-tvOSTests/Pods-SSChatReact-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		3CC86494A6A39EC978EB8D87 /* libPods-SSChatReact-SSChatReactTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSChatReact-SSChatReactTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4895CACAFB7DCB6953AF9E8C /* Pods-SSChatReact-SSChatReactTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact-SSChatReactTests.release.xcconfig"; path = "Target Support Files/Pods-SSChatReact-SSChatReactTests/Pods-SSChatReact-SSChatReactTests.release.xcconfig"; sourceTree = "<group>"; };
+		5270C0D63FEB4C2F10130709 /* libPods-SSChatReact-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSChatReact-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		536A68914ABA1FB8553D0B3F /* libPods-SSChatReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSChatReact.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A1334B956DD45AC9FA38D5C /* IntroCondLightFree.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = IntroCondLightFree.ttf; path = ../assets/fonts/IntroCondLightFree.ttf; sourceTree = "<group>"; };
+		71F7171E284A417ABA6D9375 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-ThinItalic.ttf"; path = "../assets/fonts/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		72141699257E1FD700FEEE17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../ios-/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SSChatReact/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		845D2E81B9A3446C84B55E90 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-LightItalic.ttf"; path = "../assets/fonts/Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		8A283EA127CB4C49BA4B9A90 /* IntroCondBlackFree.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = IntroCondBlackFree.ttf; path = ../assets/fonts/IntroCondBlackFree.ttf; sourceTree = "<group>"; };
+		91FFD92DF9A74320A99E487E /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-HeavyItalic.ttf"; path = "../assets/fonts/Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		B2648CE8877E2A0D3B308A08 /* Pods-SSChatReact-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact-tvOS.release.xcconfig"; path = "Target Support Files/Pods-SSChatReact-tvOS/Pods-SSChatReact-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		B7935766D9B147EFB9ACF400 /* Lato-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Light.ttf"; path = "../assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; };
+		C4C2D6FEF604A39FF70A7280 /* Pods-SSChatReact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact.debug.xcconfig"; path = "Target Support Files/Pods-SSChatReact/Pods-SSChatReact.debug.xcconfig"; sourceTree = "<group>"; };
+		D0F7C983A9B7477FBAA08151 /* Lato-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Black.ttf"; path = "../assets/fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
+		D481E2DB9F4D4A2D9C1B8CAF /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BlackItalic.ttf"; path = "../assets/fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		E6D112CDFEE03308DD14A264 /* Pods-SSChatReact-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-SSChatReact-tvOSTests/Pods-SSChatReact-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E72F2D9E241D4977A5BC50BA /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-HairlineItalic.ttf"; path = "../assets/fonts/Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		E9BB3DE3B7ABB2DE28D5736A /* Pods-SSChatReact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact.release.xcconfig"; path = "Target Support Files/Pods-SSChatReact/Pods-SSChatReact.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		EE0BA268080A80FBF60E992E /* libPods-SSChatReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSChatReact.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE8F68F4EC0FEE3271F0D8C5 /* Pods-SSChatReact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSChatReact.debug.xcconfig"; path = "Target Support Files/Pods-SSChatReact/Pods-SSChatReact.debug.xcconfig"; sourceTree = "<group>"; };
+		F2204D5A430A49E0AD88BBE5 /* Lato-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Bold.ttf"; path = "../assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B84E0F983E0A28DA7FDB0215 /* libPods-SSChatReactTests.a in Frameworks */,
+				9991C380F0AA6758AE167CEB /* libPods-SSChatReact-SSChatReactTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AD253B7A87E9636902FA183 /* libPods-SSChatReact.a in Frameworks */,
+				699EB97BE699F00C0CCD5E30 /* libPods-SSChatReact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7000D3A0B9FB396510345550 /* libPods-SSChatReact-tvOS.a in Frameworks */,
+				D6A32443F480B3AA7836E683 /* libPods-SSChatReact-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13F385C8A0C21F505BE5643A /* libPods-SSChatReact-tvOSTests.a in Frameworks */,
+				59D27CF9465939E3005DE4F7 /* libPods-SSChatReact-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,16 +164,43 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		03737A3780E240C78F99CF2D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A283EA127CB4C49BA4B9A90 /* IntroCondBlackFree.ttf */,
+				5A1334B956DD45AC9FA38D5C /* IntroCondLightFree.ttf */,
+				D0F7C983A9B7477FBAA08151 /* Lato-Black.ttf */,
+				D481E2DB9F4D4A2D9C1B8CAF /* Lato-BlackItalic.ttf */,
+				F2204D5A430A49E0AD88BBE5 /* Lato-Bold.ttf */,
+				24B89BE6FE7542748A59550A /* Lato-BoldItalic.ttf */,
+				2DD77A81C15846FE87EC0429 /* Lato-Hairline.ttf */,
+				E72F2D9E241D4977A5BC50BA /* Lato-HairlineItalic.ttf */,
+				2E0865770DA748F59D17068B /* Lato-Heavy.ttf */,
+				91FFD92DF9A74320A99E487E /* Lato-HeavyItalic.ttf */,
+				1C1B3CCDC10F465E9A085509 /* Lato-Italic.ttf */,
+				B7935766D9B147EFB9ACF400 /* Lato-Light.ttf */,
+				845D2E81B9A3446C84B55E90 /* Lato-LightItalic.ttf */,
+				2D0CD8457D314099B855D724 /* Lato-Medium.ttf */,
+				1DDB5C7D1BFA4D54A1A9E86D /* Lato-MediumItalic.ttf */,
+				04C53B3DF42041BC94C14246 /* Lato-Regular.ttf */,
+				0BDE3BEFB7B64CFAB2D755AA /* Lato-Semibold.ttf */,
+				0FF783A11DC04760966AD207 /* Lato-SemiboldItalic.ttf */,
+				29A51FBE4AE8436584BB572B /* Lato-Thin.ttf */,
+				71F7171E284A417ABA6D9375 /* Lato-ThinItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* SSChatReact */ = {
 			isa = PBXGroup;
 			children = (
-				9F9DCC952370273D004E555E /* GoogleService-Info.plist */,
+				72141699257E1FD700FEEE17 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = SSChatReact;
@@ -184,10 +211,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				EE0BA268080A80FBF60E992E /* libPods-SSChatReact.a */,
-				B59B0CEC975BE7DE6D94F99B /* libPods-SSChatReact-tvOS.a */,
-				272038A3F47561629A6D2907 /* libPods-SSChatReact-tvOSTests.a */,
-				61BF67B8C5859DA6900AB86B /* libPods-SSChatReactTests.a */,
+				536A68914ABA1FB8553D0B3F /* libPods-SSChatReact.a */,
+				3CC86494A6A39EC978EB8D87 /* libPods-SSChatReact-SSChatReactTests.a */,
+				5270C0D63FEB4C2F10130709 /* libPods-SSChatReact-tvOS.a */,
+				288722DA6936C1D32A349D54 /* libPods-SSChatReact-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,8 +234,8 @@
 				00E356EF1AD99517003FC87E /* SSChatReactTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				ECEA99B8978129259ABCA1A5 /* Pods */,
-				AE8B18D3108C48CB847C211D /* Resources */,
+				C4921B7816ADEB92D0C289E7 /* Pods */,
+				03737A3780E240C78F99CF2D /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -226,44 +253,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AE8B18D3108C48CB847C211D /* Resources */ = {
+		C4921B7816ADEB92D0C289E7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8842C96C2A984DE9B6B12C16 /* IntroCondBlackFree.ttf */,
-				E09C208C35864D6FB16CC1D2 /* IntroCondLightFree.ttf */,
-				80ED7CDB448944158D194983 /* Lato-Black.ttf */,
-				A09DF8A00CC449DBAD59DAAA /* Lato-BlackItalic.ttf */,
-				265A5A0406714AC6B427E63D /* Lato-Bold.ttf */,
-				93B49D367E2E40FD8DC6C654 /* Lato-BoldItalic.ttf */,
-				A33B828184FD4E9CA1B98C91 /* Lato-Hairline.ttf */,
-				1C3953AE30FB467CBB2FB383 /* Lato-HairlineItalic.ttf */,
-				17DBB861FD0747819F279719 /* Lato-Heavy.ttf */,
-				6C208C4FB5BD4E12826F942F /* Lato-HeavyItalic.ttf */,
-				CCBDB88D087840C18F7D8E29 /* Lato-Italic.ttf */,
-				91597F98C7AA4341BF0CBE43 /* Lato-Light.ttf */,
-				B292B8D1CB994DB5A38A795A /* Lato-LightItalic.ttf */,
-				AF2014C1BB0F4911A510C7FB /* Lato-Medium.ttf */,
-				80E1188D3E5A472E96D34EEE /* Lato-MediumItalic.ttf */,
-				616AF71329D1498195B48B6B /* Lato-Regular.ttf */,
-				1C1A0657C56A4540A359E45C /* Lato-Semibold.ttf */,
-				3D5DFF18EC6844B89C71510F /* Lato-SemiboldItalic.ttf */,
-				69489493A4F04C359F604855 /* Lato-Thin.ttf */,
-				25F666EF68814632AC4E647D /* Lato-ThinItalic.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		ECEA99B8978129259ABCA1A5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EE8F68F4EC0FEE3271F0D8C5 /* Pods-SSChatReact.debug.xcconfig */,
-				E6CC5917A46C29D18EB67173 /* Pods-SSChatReact.release.xcconfig */,
-				6F549C9F361E53466CEAEA3E /* Pods-SSChatReact-tvOS.debug.xcconfig */,
-				43E7BCA1D515416FF0369E44 /* Pods-SSChatReact-tvOS.release.xcconfig */,
-				1F2809BC9070E706960C9B65 /* Pods-SSChatReact-tvOSTests.debug.xcconfig */,
-				60BEACAA5C37D0631261556A /* Pods-SSChatReact-tvOSTests.release.xcconfig */,
-				B60D7BE68699F6EEE1489914 /* Pods-SSChatReactTests.debug.xcconfig */,
-				E4EE57AC71AD05A00568998F /* Pods-SSChatReactTests.release.xcconfig */,
+				C4C2D6FEF604A39FF70A7280 /* Pods-SSChatReact.debug.xcconfig */,
+				E9BB3DE3B7ABB2DE28D5736A /* Pods-SSChatReact.release.xcconfig */,
+				19E5B1CA10CC08D5C2A71B53 /* Pods-SSChatReact-SSChatReactTests.debug.xcconfig */,
+				4895CACAFB7DCB6953AF9E8C /* Pods-SSChatReact-SSChatReactTests.release.xcconfig */,
+				10B445C481C70684C2C404CF /* Pods-SSChatReact-tvOS.debug.xcconfig */,
+				B2648CE8877E2A0D3B308A08 /* Pods-SSChatReact-tvOS.release.xcconfig */,
+				E6D112CDFEE03308DD14A264 /* Pods-SSChatReact-tvOSTests.debug.xcconfig */,
+				3C603B5F31FDD46ACC306827 /* Pods-SSChatReact-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -275,10 +275,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "SSChatReactTests" */;
 			buildPhases = (
-				75F242B267E42AF3F0FD7D30 /* [CP] Check Pods Manifest.lock */,
+				BF209DA41D8D2BE612ED646D /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				BB5298C6DB1611694B715836 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,13 +295,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SSChatReact" */;
 			buildPhases = (
-				1B6F9D2330AFDCB69597DC5F /* [CP] Check Pods Manifest.lock */,
+				ACF53CC89F5171AA77B2C164 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				9640ABF86FC083A81C18DA06 /* [CP] Copy Pods Resources */,
+				939C0784E1B35FA2387B7DEC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -315,7 +316,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "SSChatReact-tvOS" */;
 			buildPhases = (
-				8C49C0EE7FBCCF2F65EF3032 /* [CP] Check Pods Manifest.lock */,
+				14CD2C46D3615F124BC8A766 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -335,7 +336,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "SSChatReact-tvOSTests" */;
 			buildPhases = (
-				737758734F8482145F821310 /* [CP] Check Pods Manifest.lock */,
+				6693F8F3846278200D947185 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -356,17 +357,14 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 940;
-				ORGANIZATIONNAME = Facebook;
+				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 3NHXJL2834;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 3NHXJL2834;
-						ProvisioningStyle = Automatic;
+						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -381,10 +379,9 @@
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SSChatReact" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -413,29 +410,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				CDE6DBA00D7E4A3BBEC49D21 /* IntroCondBlackFree.ttf in Resources */,
-				653F83EE874B4CC2B8EB2F50 /* IntroCondLightFree.ttf in Resources */,
-				9F9DCC962370273D004E555E /* GoogleService-Info.plist in Resources */,
-				DE279667A7C64823B2613BF5 /* Lato-Black.ttf in Resources */,
-				CDBF292656094A2481ED1302 /* Lato-BlackItalic.ttf in Resources */,
-				D370E70B5CCE44A7A78B8C59 /* Lato-Bold.ttf in Resources */,
-				77CC593AF0474D94856366BE /* Lato-BoldItalic.ttf in Resources */,
-				EC6EE19586CC4DC5A8BBB5E4 /* Lato-Hairline.ttf in Resources */,
-				37571419124D4AA2A0E4182C /* Lato-HairlineItalic.ttf in Resources */,
-				DB456AB159F443448B16E180 /* Lato-Heavy.ttf in Resources */,
-				171AD43505DC44B98FD2A9CC /* Lato-HeavyItalic.ttf in Resources */,
-				2ACA5472285846F09D3734E2 /* Lato-Italic.ttf in Resources */,
-				33DBA3552E1A4A768062F8F8 /* Lato-Light.ttf in Resources */,
-				AD056DEE042344BB88C24CAA /* Lato-LightItalic.ttf in Resources */,
-				959DC60D70A44101BEBC7374 /* Lato-Medium.ttf in Resources */,
-				1DBAF454962646C78EA65CD0 /* Lato-MediumItalic.ttf in Resources */,
-				C6E9C379376F4DCD969CF650 /* Lato-Regular.ttf in Resources */,
-				432A33B900BE4F41AD06CD0A /* Lato-Semibold.ttf in Resources */,
-				24B85EA215BB40D78A59D766 /* Lato-SemiboldItalic.ttf in Resources */,
-				171AC631F0C24793887C39E3 /* Lato-Thin.ttf in Resources */,
-				42243C6100F440C781CBAC8F /* Lato-ThinItalic.ttf in Resources */,
+				8C2B789FBEFE4629AF6DE6C4 /* IntroCondBlackFree.ttf in Resources */,
+				0C17AA685E354F9ABE0E2E27 /* IntroCondLightFree.ttf in Resources */,
+				7488807538164434BD5F613D /* Lato-Black.ttf in Resources */,
+				36D16D49D9C8409FA34A2F5B /* Lato-BlackItalic.ttf in Resources */,
+				768BBBB95C5A4347BE0AFF73 /* Lato-Bold.ttf in Resources */,
+				BD7E2D4CF3E642C592E4A44D /* Lato-BoldItalic.ttf in Resources */,
+				AE3DFC8C9F2F489A8D91F34D /* Lato-Hairline.ttf in Resources */,
+				B1E9ACD36CC147159D1E8F73 /* Lato-HairlineItalic.ttf in Resources */,
+				BDE79E33944B4DD2A175BF97 /* Lato-Heavy.ttf in Resources */,
+				7965C3E8C5BB4A79A18351A9 /* Lato-HeavyItalic.ttf in Resources */,
+				45A1E23337EE4536BD03F19E /* Lato-Italic.ttf in Resources */,
+				6E989D183F684F96BBED00F6 /* Lato-Light.ttf in Resources */,
+				12525A87629540DFBD7E8BDE /* Lato-LightItalic.ttf in Resources */,
+				8188C589A90B4150B923BE28 /* Lato-Medium.ttf in Resources */,
+				BB1506F8869249FABB2FEC16 /* Lato-MediumItalic.ttf in Resources */,
+				FB6AE0D26CF444D78EF31F51 /* Lato-Regular.ttf in Resources */,
+				FE464721C9E24EF3A0A94457 /* Lato-Semibold.ttf in Resources */,
+				7214169A257E1FD700FEEE17 /* GoogleService-Info.plist in Resources */,
+				9249E618FE8B478AA98B8FB8 /* Lato-SemiboldItalic.ttf in Resources */,
+				F219A3463B5149F688931588 /* Lato-Thin.ttf in Resources */,
+				52B6BD1711154676B3C51FCC /* Lato-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,87 +468,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		1B6F9D2330AFDCB69597DC5F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SSChatReact-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		737758734F8482145F821310 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SSChatReact-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		75F242B267E42AF3F0FD7D30 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SSChatReactTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8C49C0EE7FBCCF2F65EF3032 /* [CP] Check Pods Manifest.lock */ = {
+		14CD2C46D3615F124BC8A766 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -573,22 +490,124 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9640ABF86FC083A81C18DA06 /* [CP] Copy Pods Resources */ = {
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native Code And Images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		6693F8F3846278200D947185 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SSChatReact-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		939C0784E1B35FA2387B7DEC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SSChatReact/Pods-SSChatReact-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates-Cpp.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Cpp.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SSChatReact/Pods-SSChatReact-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACF53CC89F5171AA77B2C164 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SSChatReact-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB5298C6DB1611694B715836 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SSChatReact-SSChatReactTests/Pods-SSChatReact-SSChatReactTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates-Cpp.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Cpp.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SSChatReact-SSChatReactTests/Pods-SSChatReact-SSChatReactTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF209DA41D8D2BE612ED646D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SSChatReact-SSChatReactTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -681,31 +700,18 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = SSChatReact;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B60D7BE68699F6EEE1489914 /* Pods-SSChatReactTests.debug.xcconfig */;
+			baseConfigurationReference = 19E5B1CA10CC08D5C2A71B53 /* Pods-SSChatReact-SSChatReactTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 3NHXJL2834;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SSChatReactTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -720,13 +726,12 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4EE57AC71AD05A00568998F /* Pods-SSChatReactTests.release.xcconfig */;
+			baseConfigurationReference = 4895CACAFB7DCB6953AF9E8C /* Pods-SSChatReact-SSChatReactTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 3NHXJL2834;
 				INFOPLIST_FILE = SSChatReactTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -741,14 +746,12 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE8F68F4EC0FEE3271F0D8C5 /* Pods-SSChatReact.debug.xcconfig */;
+			baseConfigurationReference = C4C2D6FEF604A39FF70A7280 /* Pods-SSChatReact.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 3NHXJL2834;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SSChatReact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -758,20 +761,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = in.newdevpoint.SSChatReact;
 				PRODUCT_NAME = SSChatReact;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6CC5917A46C29D18EB67173 /* Pods-SSChatReact.release.xcconfig */;
+			baseConfigurationReference = E9BB3DE3B7ABB2DE28D5736A /* Pods-SSChatReact.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3NHXJL2834;
 				INFOPLIST_FILE = SSChatReact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -781,14 +783,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = in.newdevpoint.SSChatReact;
 				PRODUCT_NAME = SSChatReact;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F549C9F361E53466CEAEA3E /* Pods-SSChatReact-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 10B445C481C70684C2C404CF /* Pods-SSChatReact-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -806,17 +808,17 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.SSChatReact-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.SSChatReact-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43E7BCA1D515416FF0369E44 /* Pods-SSChatReact-tvOS.release.xcconfig */;
+			baseConfigurationReference = B2648CE8877E2A0D3B308A08 /* Pods-SSChatReact-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -834,17 +836,17 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.SSChatReact-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.SSChatReact-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F2809BC9070E706960C9B65 /* Pods-SSChatReact-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = E6D112CDFEE03308DD14A264 /* Pods-SSChatReact-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -861,7 +863,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.SSChatReact-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.SSChatReact-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SSChatReact-tvOS.app/SSChatReact-tvOS";
@@ -871,7 +873,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60BEACAA5C37D0631261556A /* Pods-SSChatReact-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 3C603B5F31FDD46ACC306827 /* Pods-SSChatReact-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -888,7 +890,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.SSChatReact-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.SSChatReact-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SSChatReact-tvOS.app/SSChatReact-tvOS";
@@ -900,6 +902,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -942,7 +945,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -953,6 +962,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -988,7 +998,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

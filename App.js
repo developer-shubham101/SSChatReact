@@ -20,14 +20,11 @@ import AllUsersListForGroup from "./src/AllUsersListForGroup";
 
 
 
-import {
-    createStackNavigator,
-    createAppContainer,
-    createDrawerNavigator,
-    createBottomTabNavigator,
-    createSwitchNavigator,
-    TabBarBottom
-} from 'react-navigation';
+import { createAppContainer, createSwitchNavigator, } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createDrawerNavigator } from 'react-navigation-drawer'; 
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+
 
 const TabScreen = (props) => (<View><Text>HELLO WORLD</Text></View>);
 
